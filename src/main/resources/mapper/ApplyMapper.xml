@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.education.mapper.ApplyMapper">
+    <resultMap id="BaseResultMap" type="com.yc.education.model.Apply">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+        <result column="img" jdbcType="VARCHAR" property="img"/>
+        <result column="sort" jdbcType="VARCHAR" property="sort"/>
+    </resultMap>
+
+    <select id="listAppply" resultMap="BaseResultMap">
+        SELECT * FROM apply ORDER BY (sort+0)
+    </select>
+
+</mapper>

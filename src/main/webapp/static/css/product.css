@@ -1,0 +1,339 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.type-page {
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+div.header-title > div.type-page > img.logo {
+	margin-top: 26px;
+}
+
+div.header-title > div.type-page > ul {
+	list-style: none;
+	font-size: 0px;
+	float: right;
+	height: 96px;
+}
+
+div.header-title > div.type-page > ul > li {
+	display: inline-block;
+	font-size: 16px;
+	color: #7c7d80;
+	text-align: center;
+	width: 116px;
+	height: 96px;
+	line-height: 96px;
+	box-sizing: border-box;
+}
+
+div.header-title > div.type-page > ul > li > a {
+	color: #7c7d80;
+}
+
+div.header-title > div.type-page > ul > li:hover {
+	border: 1px solid #eeeeee;
+	border-bottom: 2px solid #27a01c;
+}
+
+div.header-title > div.type-page > ul > li:last-child {
+	box-sizing: border-box;
+}
+
+div.header-title > div.type-page > ul > li:last-child:hover {
+	border: 0;
+}
+
+div.header-title > div.type-page > ul > li:last-child > span {
+	width: 82px;
+	height: 32px;
+	border: 1px solid #dbdbdb;
+	border-radius: 2px;
+	padding: 10px 32px;
+	color: #44ad3a;
+}
+
+div.banner {
+	width: 100%;
+	height: 350px;
+	overflow: hidden;
+}
+
+div.banner > img {
+	width: 100%;
+}
+
+div.application-body {
+	width: 100%;
+	height: auto;
+	padding-top: 50px;
+}
+
+div.application-body > div.type-page {
+	text-align: left;
+	overflow: hidden;
+}
+
+div.application-body > div.type-page > div.title {
+	padding-left:40px; 
+	font-size: 25px;
+	color: #32303e;
+	font-weight: 500;
+	position: relative;
+}
+
+
+div.application-body > div.type-page > div.subTitle {
+	margin-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #999;
+	padding-left:40px; 
+	font-size: 16px;
+	color: #bec0c4;
+}
+.download .download-le .dl-le-title a {
+    display:block;
+    padding: 5px 10px;
+    border: 1px solid #27a01c;
+	float: right;
+	border-radius: 13px;
+	font-size: 14px;
+}
+.download .download-le .dl-le-title a:hover{
+	background: #27a01c;
+	color: #fff;
+}
+.download .download-le .dl-le-title h2{
+	display: block;
+}
+div.application-body > div.type-page > div.wrapper {
+	width: 100%;
+	padding: 30px 136px;
+	margin: 0 auto;
+	margin-bottom:50px;
+}
+.download .download-le {
+	height: auto;
+	min-height: 430px;
+}
+div.application-body > div.type-page > div.wrapper > ul {
+	list-style: none;
+}
+
+div.application-body > div.type-page > div.wrapper > ul > li {
+	height: 388px;
+	width: 434px;
+	display: inline-block;
+	float: left;
+	text-align: left;
+}
+
+div.application-body > div.type-page > div.wrapper > ul > li > img {
+	height: 228px;
+	width: 100%;
+}
+
+div.application-body > div.type-page > div.wrapper > ul > li >a> p {
+	height: 74px;
+	line-height: 74px;
+	border-bottom: 1px solid #eaeaea;
+}
+
+div.application-body > div.type-page > div.wrapper > ul > li >a> p > span {
+	color: #999;
+	font-size: 14px;
+	margin-left: 8px;
+}
+
+div.application-body > div.type-page > div.wrapper > ul > li >a> div {
+	color: #7c7d80;
+	font-size: 14px;
+	line-height: 30px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	padding-top: 12px;
+}
+
+div.application-body > div.type-page > div.wrapper > ul > li:nth-child(2n) {
+	float: right;
+}
+
+div.application-body > div.type-page > div.wrapper > ul > li:nth-child(n+3) {
+	margin-top: 64px;
+}
+.download-data{
+	width: 100%;
+	height: auto;
+}
+.data-title{
+	width: 100%;
+	height: 40px;
+	margin-top:20px; 
+}
+.data-title li{
+	float: left;
+	width: 14.28%;
+	height: 40px;
+	line-height: 40px;
+	background: #f5f5f5;
+}
+.data-title li:hover{
+	border-bottom:2px solid #27a01c; 
+}
+.data-title li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.data-title li a:hover{
+	color: #27a01c;
+}
+.download-active{
+	color: #27a01c;
+	border-bottom:2px solid #27a01c; 
+}
+.download-active a{
+	color: #27a01c;
+}
+.data-content{
+	width: 100%;
+	height: auto;
+	padding-top: 30px;
+	padding-bottom: 40px;
+	overflow: hidden;
+}
+.data-content-box{
+	width: 8400px;
+	position: relative;
+}
+.data-content-box ul{
+	float: left;
+	max-width: 1200px;
+	width: 100%;
+}
+.data-content li{
+	float: left;
+	width: 18%;
+	margin-right:2%;
+	margin-bottom: 10px;
+	height: 25px;
+	line-height: 25px; 
+}
+.data-content li a{
+	float: left;
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 25px;
+	border-bottom: 1px solid #ccc;
+}
+.data-content li a img{
+	float: right;
+	height: 15px;
+	width: 15px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%); 
+}
+.more{
+	display: inline-block;
+	padding: 5px 10px;
+	float: right;
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+	background: #27a01c;
+	color: #fff;
+	border-radius: 10px;
+}
+@media only screen and (max-width:1000px) {
+	div.banner {
+		width: 100%;
+		height: 200px;
+	}
+	div.application-body {
+		width: 100%;
+		height: auto;
+		padding-top: 20px;
+	}
+	.type-page {
+		width: 100%;
+		height: auto;
+		margin: 0 auto;
+	}
+	div.application-body > div.type-page > div.title {
+		font-size: 24px;
+		color: #32303e;
+		font-weight: 500;
+		position: relative;
+	}
+	div.application-body > div.type-page > div.subTitle {
+		margin-top: 16px;
+		margin-bottom: 20px;
+		font-size: 16px;
+		color: #bec0c4;
+	}
+	div.application-body > div.type-page > div.wrapper {
+		width: 100%;
+		margin: 0;
+		padding: 10px 0;
+	}
+	div.application-body > div.type-page > div.wrapper > ul > li {
+    height: 388px;
+    width: 100%;
+    display: inline-block;
+    float: none;
+    text-align: left;
+    padding: 10px;
+	}
+	div.application-body > div.type-page > div.wrapper > ul > li >a>img{
+    width: 100%;
+	}
+	div.application-body > div.type-page > div.wrapper > ul > li:nth-child(n+3) {
+    margin-top: 0px;
+}
+.data-title li{
+	float: left;
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	background: #f5f5f5;
+}
+.data-content li{
+	float: left;
+	width: 49%;
+	margin-right:1%;
+	margin-bottom: 10px;
+	height: 25px;
+	line-height: 25px; 
+}
+.data-content-box ul {
+    float: left;
+    max-width: 375px;
+    width: 100%;
+}
+.data-content li a{
+	float: left;
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 25px;
+	padding-left: 15px;
+	border-bottom: 1px solid #ccc;
+}
+}
+
+
+/*# sourceMappingURL=application.css.map */

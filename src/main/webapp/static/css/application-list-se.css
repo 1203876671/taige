@@ -1,0 +1,72 @@
+.app-list-tab {
+  width: 100%;
+  height: 50px;
+  background: #f5f5f5;
+  margin: 10px 0px;
+}
+.download .download-le .dl-le-title {
+  padding: 0 40px 40px 40px;
+  border-bottom: 1px solid #999;
+}
+.app-list-tab li {
+  width: 33%;
+  height: 50px;
+  float: left;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+}
+.app-list-select {
+  height: 40px;
+  width: 50%;
+  text-align: center;
+  padding-left:20px;
+  font-size: 16px;
+}
+.app-list-select option{
+  padding: 10px 0px;
+  width: 50%;
+  text-align: center;
+  font-size: 16px;
+}
+.fix{
+  padding-left: 40px;
+  width: 100%;
+  background: #f5f5f5;
+  text-align: center;
+  margin: 10xp 0px;
+}
+.fix li{
+  width: 25%;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+}
+.fix li:hover{
+  color: #27a01c;
+  border-bottom:2px solid #27a01c; 
+}
+.dl-list-title{
+  background: #fff;
+}
+.app-tab-active {
+  color: #27a01c;
+  border-bottom: 2px solid #27a01c;
+}
+@media only screen and (max-width: 750px) {
+  .download .download-le .dl-le-title a {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #999;
+    margin-right: 10px;
+  }
+  .app-list-select {
+    display: block;
+    height: 40px;
+    width: 50%;
+    text-align: center;
+    padding: 0 20px;
+    font-size: 16px;
+  }
+}

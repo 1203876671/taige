@@ -1,0 +1,86 @@
+.download {
+  padding-left: 5%;
+  background: #fff;
+}
+.download .download-le {
+  background: #fff;
+}
+.download .link {
+  font-size: 16px;
+  line-height: 40px;
+  border-bottom: 1px solid #eee;
+}
+.download .link a {
+  font-size: 16px;
+}
+.download .par-title {
+  height: 60px;
+  width: 100%;
+  background: #eaf2e9;
+  margin: 20px 0 60px;
+  line-height: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.download .par-title h1 {
+  font-weight: 400;
+  color: #27a014;
+  padding-right: 45px;
+  position: relative;
+}
+.download .par-title h1 span {
+  float: right;
+  font-size: 16px;
+  margin-right:5px;
+}
+.download .par-title h1 span a {
+  vertical-align: middle;
+}
+.download .par-title h1 span a img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 17px;
+  right: 10px;
+}
+.param-tab {
+  font-size: 18px;
+  color: #27a014;
+  line-height: 50px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+.param-tab span {
+  float: right;
+  display: inline-block;
+  height: 50px;
+}
+.param-tab span a {
+  font-size: 30px;
+  color: #666;
+}
+.param-tab span a:nth-child(2) {
+  display: none;
+}
+.para-tab-content {
+  padding: 20px 0;
+  display: none;
+  font-size:16px;
+}
+@media only screen and (max-width: 750px) {
+  .download .par-title h1 {
+    font-weight: 400;
+    color: #27a014;
+    padding-right: 45px;
+    position: relative;
+    font-size: 20px;
+  }
+  .download {
+    padding-left: 0;
+    background: #fff;
+  }
+  .download .download-le {
+    background: #fff;
+    padding: 0;
+  }
+}
