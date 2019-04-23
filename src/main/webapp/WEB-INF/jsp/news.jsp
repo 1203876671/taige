@@ -48,7 +48,7 @@
 
 <div class="header">
     <div class="mainbox clearfix header_nav">
-        <a class="logo" href="index.jsp">
+        <a class="logo" href="index.html">
             <img src="${pageContext.request.contextPath}/static/images/logo.png">
         </a>
         <div class="munes">
@@ -59,7 +59,7 @@
         <div class="nav">
             <ul class="navul clearfix dropdown">
                 <li class="navli">
-                    <a href="index.jsp">首页</a>
+                    <a href="index.html">首页</a>
                 </li>
                 <li class="navli">
                     <a class="level" href="company.html">关于泰格</a>
@@ -73,13 +73,9 @@
                 <li class="navli">
                     <a class="level" href="goods.html">产品中心</a>
                     <div class="level_down">
-                        <a href="download.html">分散剂</a>
-                        <a href="download.html">流平剂</a>
-                        <a href="download.html">消泡剂</a>
-                        <a href="download.html">基材润湿剂</a>
-                        <a href="download.html">附着力促进剂</a>
-                        <a href="download.html">特用助剂</a>
-                        <a href="download.html">流变助剂</a>
+                        <c:forEach items="${listProduct}" var="listProduct">
+                            <a href="download.html?proid=${listProduct.id}">${listProduct.name}</a>
+                        </c:forEach>
                     </div>
                 </li>
                 <li class="navli cur-active">
@@ -92,8 +88,9 @@
                 <li class="navli">
                     <a class="level" href="application-list-shui.html">应用推荐</a>
                     <div class="level_down">
-                        <a href="application-list-shui.html">水性体系</a>
-                        <a href="application-list-you.html">油性体系</a>
+                        <c:forEach items="${listApply}" var="listApply">
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </c:forEach>
                         <a href="ask.html">样品索取</a>
                         <a href="download-list.html">资料下载</a>
                     </div>
@@ -154,7 +151,7 @@
                 <span class="span_tab">>></span>
                 <a href="news.html" class="news_href">新闻资讯</a>
                 <span>>></span>
-                <a href="index.jsp" id="index">首页</a>
+                <a href="index.html" id="index">首页</a>
                 <span>当前位置：</span>
             </div>
         </div>
@@ -294,7 +291,7 @@
 <div class="footer_flixd">
     <ul>
         <li>
-            <a href="index.jsp" class="frist_a">
+            <a href="index.html" class="frist_a">
                 <i class="frist"></i>首頁</a>
         </li>
         <li>

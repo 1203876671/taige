@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html style="font-size:100px">
@@ -51,8 +52,8 @@
 
 <div class="header">
     <div class="mainbox clearfix header_nav">
-        <a class="logo" href="index.jsp">
-            <img src="images/logo.png">
+        <a class="logo" href="index.html">
+            <img src="${pageContext.request.contextPath}/static/images/logo.png">
         </a>
         <div class="munes">
             <span class="mune1"></span>
@@ -62,41 +63,38 @@
         <div class="nav">
             <ul class="navul clearfix dropdown">
                 <li class="navli">
-                    <a href="index.jsp">首页</a>
+                    <a href="index.html">首页</a>
                 </li>
                 <li class="navli">
                     <a class="level" href="company.html">关于泰格</a>
                     <div class="level_down">
-                        <a href="company.html">公司简介</a>
-                        <a href="company.html">公司愿景</a>
-                        <a href="company.html">安全环保</a>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=1">公司简介</a>
+                        <a href="company.html?type=2">公司愿景</a>
+                        <a href="company.html?type=3">安全环保</a>
+                        <a href="company.html?type=4">价值传递</a>
                     </div>
                 </li>
                 <li class="navli">
                     <a class="level" href="goods.html">产品中心</a>
                     <div class="level_down">
-                        <a href="download.html">分散剂</a>
-                        <a href="download.html">流平剂</a>
-                        <a href="download.html">消泡剂</a>
-                        <a href="download.html">基材润湿剂</a>
-                        <a href="download.html">附着力促进剂</a>
-                        <a href="download.html">特用助剂</a>
-                        <a href="download.html">流变助剂</a>
+                        <c:forEach items="${listProduct}" var="listProduct">
+                            <a href="download.html">${listProduct.name}</a>
+                        </c:forEach>
                     </div>
                 </li>
                 <li class="navli">
                     <a class="level" href="news.html">新闻资讯</a>
                     <div class="level_down">
                         <a href="news.html">公司新闻</a>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </div>
                 </li>
                 <li class="navli cur-active">
-                    <a class="level" href="application-list-shui.html">应用推荐</a>
+                    <a class="level" href="application-list.html?applyid=1">应用推荐</a>
                     <div class="level_down">
-                        <a href="application-list-shui.html">水性体系</a>
-                        <a href="application-list-you.html">油性体系</a>
+                        <c:forEach items="${listApply}" var="listApply">
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </c:forEach>
                         <a href="ask.html">样品索取</a>
                         <a href="download-list.html">资料下载</a>
                     </div>
@@ -137,7 +135,8 @@
             });
     </script>
 </div>
-<div class="goods_banner" style="background: url(images/goods_banner.jpg) repeat-x center top; background-size:cover;">
+<div class="goods_banner"
+     style="background: url(${pageContext.request.contextPath}/static/images/goods_banner.jpg) repeat-x center top; background-size:cover;">
     <h2>索取样品</h2>
     <span></span>
     <p>KEEP ABREAST OF PRODUCT INFORMATION</p>
@@ -157,7 +156,7 @@
         </h2>
         <p>通过本网站提交索取样品请求服务信息，您必须透露索取人的识别信息，包括姓名、Eimail地址以及公司信息。此外也可以直接邮件联络泰格直接索取。</p>
         <div class="information">
-            <form action="">
+            <form action="" onsubmit="return chankform()">
                 <ul>
                     <li>
                         <input type="text" placeholder="联络姓名:">
@@ -200,16 +199,16 @@
                 <dl>
                     <dt>关于泰格</dt>
                     <dd>
-                        <a href="company.html">公司简介</a>
+                        <a href="company.html?type=1">公司简介</a>
                     </dd>
                     <dd>
-                        <a href="company.html">公司愿景</a>
+                        <a href="company.html?type=2">公司愿景</a>
                     </dd>
                     <dd>
-                        <a href="company.html">安全环保</a>
+                        <a href="company.html?type=3">安全环保</a>
                     </dd>
                     <dd>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=3">价值传递</a>
                     </dd>
                 </dl>
 
@@ -219,43 +218,26 @@
                         <a href="news.html">公司新闻</a>
                     </dd>
                     <dd>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </dd>
                 </dl>
 
                 <dl>
                     <dt>产品中心</dt>
-                    <dd>
-                        <a href="download.html">分散剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流平剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">消泡剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">基材润湿剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">附着力促进剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">特用助剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流变助剂</a>
-                    </dd>
+                    <c:forEach items="${listProduct}" var="listProduct">
+                        <dd>
+                            <a href="download.html?proid=${listProduct.id}">${listProduct.name}</a>
+                        </dd>
+                    </c:forEach>
                 </dl>
 
                 <dl>
                     <dt>应用推荐</dt>
-                    <dd>
-                        <a href="application-list-shui.html">水性体系</a>
-                    </dd>
-                    <dd>
-                        <a href="application-list-you.html">油性体系</a>
-                    </dd>
+                    <c:forEach items="${listApply}" var="listApply">
+                        <dd>
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </dd>
+                    </c:forEach>
                     <dd>
                         <a href="ask.html">样品索取</a>
                     </dd>
@@ -280,12 +262,19 @@
         </div>
 
         <div class="footer_logo aos-animate" data-aos-duration="300" data-aos-delay="100" data-aos="fade-left">
-            <img src="images/footer-top-logo.png" style="width: 260px;">
-            <img src="images/footer_logo.png">
+            <img src="${pageContext.request.contextPath}/static/images/footer-top-logo.png" style="width: 260px;">
+            <img src="${pageContext.request.contextPath}/static/images/footer_logo.png">
         </div>
     </div>
 </div>
 <div class="footer_flixd_bottom"></div>
+<script>
+
+    function chankform() {
+        return false;
+    }
+
+</script>
 <div class="footer_flixd">
     <ul>
         <li>

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @ClassName IndexController
  * @Description TODO
@@ -43,13 +45,21 @@ public class IndexController {
      * @return
      */
     @RequestMapping("index")
-    public ModelAndView index() {
+    public ModelAndView index(HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("listProduct", productService.listProduct());
+        session.setAttribute("listProduct", productService.listProduct());
         modelAndView.addObject("listNews", newsService.listnewsOrderSortAndDate(1, 1, 10));
         modelAndView.addObject("listNews2", newsService.listnewsOrderSortAndDate(2, 1, 10));
-        modelAndView.addObject("listApply", applyService.listAppply());
+        session.setAttribute("listApply", applyService.listAppply());
         return modelAndView;
+    }
+
+    /**
+     * 页面跳转
+     */
+    @RequestMapping("ask")
+    public ModelAndView ask() {
+        return new ModelAndView();
     }
 
 }

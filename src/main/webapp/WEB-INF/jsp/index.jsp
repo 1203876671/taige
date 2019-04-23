@@ -72,27 +72,24 @@
                 <li class="navli">
                     <a class="level" href="goods.html">产品中心</a>
                     <div class="level_down">
-                        <a href="download.html">分散剂</a>
-                        <a href="download.html">流平剂</a>
-                        <a href="download.html">消泡剂</a>
-                        <a href="download.html">基材润湿剂</a>
-                        <a href="download.html">附着力促进剂</a>
-                        <a href="download.html">特用助剂</a>
-                        <a href="download.html">流变助剂</a>
+                        <c:forEach items="${listProduct}" var="listProduct">
+                            <a href="download.html">${listProduct.name}</a>
+                        </c:forEach>
                     </div>
                 </li>
                 <li class="navli">
                     <a class="level" href="news.html">新闻资讯</a>
                     <div class="level_down">
                         <a href="news.html">公司新闻</a>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </div>
                 </li>
                 <li class="navli">
-                    <a class="level" href="application-list-shui.html">应用推荐</a>
+                    <a class="level" href="application-list.html">应用推荐</a>
                     <div class="level_down">
-                        <a href="application-list-shui.html">水性体系</a>
-                        <a href="application-list-you.html">油性体系</a>
+                        <c:forEach items="${listApply}" var="listApply">
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </c:forEach>
                         <a href="ask.html">样品索取</a>
                         <a href="download-list.html">资料下载</a>
                     </div>
@@ -273,7 +270,7 @@
                 <c:forEach items="${listApply}" var="listApply" begin="0" end="1">
                     <c:if test="${listApply.sort == 0}">
                         <img src="${listApply.img}">
-                        <a class="reco_one" href="application-list-shui.html">
+                        <a class="reco_one" href="application-list.html?applyid=${listApply.id}">
                             <div class="reco_text">
                                 <div class="reco_textcon">
                                     <p class="down_tit">${listApply.title}</p>
@@ -281,7 +278,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a class="reco_bottom clearfix" href="application-list-shui.html">
+                        <a class="reco_bottom clearfix" href="application-list.html?applyid=${listApply.id}">
                             <p class="reco_tit">${listApply.name}</p>
                             <i class="icon_tjmore"></i>
                         </a>
@@ -293,7 +290,7 @@
             <div class="reco_list reco_w2">
                 <div class="reco_wcon aos-animate" data-aos-duration="300" data-aos-delay="200" data-aos="fade-up">
                     <img src="${listApply.img}">
-                    <a class="reco_one" href="application-list-shui.html">
+                    <a class="reco_one" href="application-list.html?applyid=${listApply.id}">
                         <div class="reco_text">
                             <div class="reco_textcon">
                                 <p class="down_tit">${listApply.title}</p>
@@ -301,7 +298,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class="reco_bottom clearfix" href="application-list-shui.html">
+                    <a class="reco_bottom clearfix" href="application-list.html?applyid=${listApply.id}">
                         <p class="reco_tit">${listApply.name}</p>
                         <i class="icon_tjmore"></i>
                     </a>
@@ -331,7 +328,7 @@
     <div class="news_tabcon" style="display:block;">
         <c:forEach var="listNews1" items="${listNews}" begin="0" end="1">
             <c:if test="${listNews1.sort == 0}">
-                <a href="news_content.html" class="news_left aos-animate" data-aos-duration="300"
+                <a href="news_content.html?id=${listNews1.id}" class="news_left aos-animate" data-aos-duration="300"
                    data-aos-delay="200"
                    data-aos="fade-right">
         <span class="newspic">
@@ -348,7 +345,7 @@
             <div class="news_right">
                 <ul>
                     <li class="aos-animate" data-aos-duration="300" data-aos-delay="300" data-aos="fade-up">
-                        <a class="news_left news_r" href="news_content.html">
+                        <a class="news_left news_r" href="news_content.html?id=${listNews.id}">
               <span class="newspic">
                 <img src="${listNews.img}">
               </span>
@@ -461,12 +458,11 @@
 
                 <dl>
                     <dt>应用推荐</dt>
-                    <dd>
-                        <a href="application-list-shui.html">水性体系</a>
-                    </dd>
-                    <dd>
-                        <a href="application-list-you.html">油性体系</a>
-                    </dd>
+                    <c:forEach items="${listApply}" var="listApply">
+                        <dd>
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </dd>
+                    </c:forEach>
                     <dd>
                         <a href="ask.html">样品索取</a>
                     </dd>

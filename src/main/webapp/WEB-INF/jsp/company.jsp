@@ -46,8 +46,8 @@
 
 <div class="header">
     <div class="mainbox clearfix header_nav">
-        <a class="logo" href="index.jsp">
-            <img src="images/logo.png">
+        <a class="logo" href="index.html">
+            <img src="${pageContext.request.contextPath}/static/images/logo.png">
         </a>
         <div class="munes">
             <span class="mune1"></span>
@@ -57,15 +57,15 @@
         <div class="nav">
             <ul class="navul clearfix dropdown">
                 <li class="navli">
-                    <a href="index.jsp">首页</a>
+                    <a href="index.html">首页</a>
                 </li>
                 <li class="navli cur-active">
                     <a class="level" href="company.html">关于泰格</a>
                     <div class="level_down">
-                        <a href="company.html">公司简介</a>
-                        <a href="company.html">公司愿景</a>
-                        <a href="company.html">安全环保</a>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=1">公司简介</a>
+                        <a href="company.html?type=2">公司愿景</a>
+                        <a href="company.html?type=3">安全环保</a>
+                        <a href="company.html?type=4">价值传递</a>
                     </div>
                 </li>
                 <li class="navli">
@@ -143,13 +143,6 @@
 <div class="company_content">
     <div class="company_center">
         <div class="company_profile">
-            <h4>公司简介</h4>
-            <p>COMPAMY &nbsp; PROFILE</p>
-            <div class="profile_left">
-                <div class="company_img">
-                    <img src="${pageContext.request.contextPath}/static/images/company_content.jpg"/>
-                </div>
-            </div>
             ${company.context}
         </div>
     </div>
@@ -197,27 +190,11 @@
 
                 <dl>
                     <dt>产品中心</dt>
-                    <dd>
-                        <a href="download.html">分散剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流平剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">消泡剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">基材润湿剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">附着力促进剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">特用助剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流变助剂</a>
-                    </dd>
+                    <c:forEach items="${listProduct}" var="listProduct">
+                        <dd>
+                            <a href="download.html?proid=${listProduct.id}">${listProduct.name}</a>
+                        </dd>
+                    </c:forEach>
                 </dl>
 
                 <dl>
@@ -261,7 +238,7 @@
 <div class="footer_flixd">
     <ul>
         <li>
-            <a href="index.jsp" class="frist_a">
+            <a href="index.html" class="frist_a">
                 <i class="frist"></i>首頁</a>
         </li>
         <li>
