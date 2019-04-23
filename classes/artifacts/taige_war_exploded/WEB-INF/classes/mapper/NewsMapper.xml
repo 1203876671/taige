@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.NewsMapper">
+    <resultMap id="BaseResultMap" type="com.yc.education.model.News">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="date" property="date" jdbcType="VARCHAR"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="outline" property="outline" jdbcType="VARCHAR"/>
+        <result column="img" property="img" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <update id="updateNewsById">
+        UPDATE news SET
+        <if test="img != null">
+            img = #{img},
+        </if>
+        type=#{type} title = #{title},outline = #{outline},author=#{author},content=#{content},date=#{date},sort=#{sort}
+        WHERE id =
+        #{id}
+    </update>
+
+    <insert id="insertNews">
+        INSERT INTO news(
+        <if test="img != null">
+            img,
+        </if>
+        title,outline,author,content,date,sort,type)VALUES(
+        <if test="img != null">
+            #{img},
+        </if>
+        #{title},#{outline},#{author},#{content},#{date},#{sort},#{type}
+        )
+    </insert>
+
+
+</mapper>

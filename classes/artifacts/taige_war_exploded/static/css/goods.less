@@ -1,0 +1,221 @@
+.goods_banner{
+    width: 100%;
+    height:3.5rem;
+    background: url(../images/goods_banner.png);
+    background-size: 100% 100%;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    h2{
+        color: #fff;
+        font-size: 0.3rem;
+        font-weight: 500;
+        margin-top: 1.33rem;
+    }
+    span{
+        display: block;
+        width: 20px;
+        height: 1px;
+        background: #fff;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0.2rem 0;
+    }
+    p{
+        color: #fff;
+        font-size: 0.14rem;
+        margin-top: 0.43rem;
+    }
+}
+.goods_table{
+    width: 100%;
+    // min-height: 7.25rem;
+}
+.goods_center{
+    width: 12rem;
+    margin: auto;
+    padding-top: 1.15rem;
+}
+.goods_title{
+    width: 1.7rem;
+    padding:0px 0.15rem;
+    font-size: 0.14rem;
+    float: left;
+    >dl{
+    width: 100%;
+    height: 100%;
+    text-indent: 0.1rem;
+    >dt{
+        font-size: 0.14rem;
+        line-height: 0.45rem;
+        background: url(../images/green.png) no-repeat center left;
+    }
+    >dd{
+        font-size: 0.14rem;
+        line-height: 0.45rem;
+        border-top: 1px solid #eee;
+        &:hover{
+            >a{
+                background: #27A01C;
+                color: #fff;
+            }
+        }
+        >a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            
+        }
+    }
+    }
+}
+.goods_content{
+    width: 12rem;
+    margin: 0 auto;
+}
+.goods_img{
+    height: 165px;
+    width: 100%;
+    overflow: hidden;
+    >img{
+        height: 100%;
+        width: 100%;
+//      transition: all 0.8s;
+    };
+}
+.goods_title_d{
+    display: none;
+}
+.goods_mask{
+    display: none;
+}
+.mask_list{
+    display: none;
+}
+.goods_tab_list{
+    height: 240px;
+    width: 300px;
+    display: block;
+    float: left;
+    border-bottom:1px solid #e7e7e7 ;
+    margin-right: 15px;
+    margin-bottom:30px;
+    &:hover{
+        border-bottom:3px solid #bfbfbf ;
+        transition: all 0.2s;
+        img{
+            transform:scale(1.2);
+            transition: all 0.8s;
+        }
+        .p_title{
+            color: #27A01C;
+        }
+    }
+
+}
+
+.goods_tab{
+    height: 100%;
+    width: 10rem;
+    margin: 0 auto;
+}
+.goods_tab_content{
+    height: 75px;
+    width: 100%;
+    padding: 20px 0px;
+    background: url(../images/right_arrow1.png) 95% center no-repeat;
+    
+    >.p_title{
+        font-size: 14px;
+        height: 24px;
+        overflow: hidden;
+        
+    }
+    >.p_content{
+        font-size: 12px;
+        height: 24px;
+        overflow: hidden;
+    }
+}
+.active{
+    background: #27A01C;
+    color: #FFFFFF;
+}
+@media only screen and (min-width: 768px) and (max-width: 1000px) {
+    .goods_banner{
+        height: 200px;
+        margin-top: 65px;
+    }
+    .goods_banner h2{
+        margin-top: 60px;
+    }
+    .goods_center{
+        width: 100%;
+        padding-top: 20px;
+    }
+    .goods_title{
+        width: 100%;
+        >dl{
+            text-indent: 0;
+            >dt{
+                float:left;
+                width: 33.33%;
+                text-indent: 0.1rem;
+                border-top: 1px solid #eee;
+                border-left: 1px solid #eee;
+                text-align: center;
+                background: url(../images/green.png) no-repeat 30% center;
+            }
+            >dd{
+                float: left;
+                width: 33.33%;
+                text-align: center;
+                border-right: 1px solid #eee;
+                >a{
+                    text-align: center;
+                }
+            }
+            >dd:nth-last-child(1){
+                width: 50%;
+                border-bottom: 1px solid #eee;
+            }
+            >dd:nth-last-child(2){
+                width: 50%;
+                border-left: 1px solid #eee;
+                border-bottom: 1px solid #eee;
+            }
+            >dd:nth-last-child(5){
+                border-left: 1px solid #eee;
+
+            }
+        }
+    }
+    .goods_content{
+        width: 100%;
+        height: auto;
+    }
+    .goods_tab{
+        width: 100%;
+    }
+    .goods_tab_list{
+        width: 48%;
+        margin: 0;
+        height: 290px;
+        margin-top: 10px;
+    }
+    .goods_tab_list:nth-child(2n+1){
+        margin-right: 2%;
+    }
+    .goods_img{
+        width: 100%;
+        height: auto;
+        padding: 5px;
+        >img{
+            width: 100%;
+        }
+    }
+    .goods_tab_content{
+        padding: 10px 5px;
+    }
+}

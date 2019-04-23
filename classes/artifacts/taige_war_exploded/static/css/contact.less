@@ -1,0 +1,122 @@
+.contact_banner {
+    width: 100%;
+    height: 3.5rem;
+    >img {
+        width: 100%;
+        height: 100%;
+    }
+}
+.contact_content {
+    width: 100%;
+    height: 1165px;
+}
+.contact_center {
+    max-width: 1200px;
+    width: 100%;
+    padding-top: 0.65rem;
+    margin: auto;
+}
+.info {
+    height: 4.7rem;
+}
+.info_left {
+    width: 590px;
+    float: left;
+    >p {
+        font-size: 0.2rem;
+        margin-bottom: 0.55rem;
+        >span {
+            font-size: 0.12rem;
+            margin-left: 0.1rem;
+        }
+    }
+    >input {
+        width: 100%;
+        height: 40px;
+        padding-left: 0.1rem;
+        margin-bottom: 10px;
+        border: 1px solid #e3e3e3;
+    }
+    >textarea {
+        width: 100%;
+        height: 130px;
+        resize: none;
+        padding: 0.15rem 0.1rem;
+        margin-bottom: 0.3rem;
+        border: 1px solid #e3e3e3;
+    }
+    >button {
+        width: 100%;
+        height: 0.4rem;
+        background: #27A01C;
+        color: #fff;
+        font-size: 16px;
+        border: 0;
+        cursor: pointer;
+        &:hover {
+            background: #168D0C;
+        }
+    }
+}
+.info_right {
+    float: right;
+    width: 610px;
+    padding: 0.93rem 0 0 1.6rem;
+    >h2 {
+        font-size: 0.18rem;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+    }
+    >p {
+        font-size: 0.14rem;
+        color: #999999;
+        line-height: 0.25rem;
+    }
+}
+.contact_map {
+    height: 5.26rem;
+}
+@media only screen and (max-width: 1000px) {
+    div.contact_banner {
+        height: 200px;
+        width: 100%;
+        margin-top: 65px;
+    }
+    .contact_content {
+    width: 100%;
+    height: auto;
+}
+.contact_center {
+    height: auto;
+    width: 100%;
+    padding-top: 20px;
+    margin: auto;
+}
+.info_left > p {
+    font-size: 0.2rem;
+    margin-bottom: 20px;
+}
+.info {
+    height: auto;
+    width: 100%;
+    >div{
+        float: none;
+    }
+}
+.info_left {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #dfdfdf;
+}
+.info_right {
+    width: 100%;
+    padding:20px;
+}
+.contact_map {
+    height: 200px;
+}
+#dituContent{
+    height: 200px !important;
+    width: 100%;
+}
+}
