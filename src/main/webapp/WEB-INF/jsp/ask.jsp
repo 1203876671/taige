@@ -156,31 +156,31 @@
         </h2>
         <p>通过本网站提交索取样品请求服务信息，您必须透露索取人的识别信息，包括姓名、Eimail地址以及公司信息。此外也可以直接邮件联络泰格直接索取。</p>
         <div class="information">
-            <form action="" onsubmit="return chankform()">
+            <form id="addUser" method="post">
                 <ul>
                     <li>
-                        <input type="text" placeholder="联络姓名:">
+                        <input type="text" placeholder="联络姓名:" name="name" id="name">
                     </li>
                     <li>
-                        <input type="text" placeholder="手机/电话:">
+                        <input type="text" placeholder="手机/电话:" name="phone" id="phone">
                     </li>
                     <li>
-                        <input type="text" placeholder="地址信息:">
+                        <input type="text" placeholder="地址信息:" name="address" id="address">
                     </li>
                     <li>
-                        <input type="text" placeholder="电子邮箱:">
+                        <input type="text" placeholder="电子邮箱:" name="emli" id="emil">
                     </li>
                     <li>
-                        <input type="text" placeholder="公司名称:">
+                        <input type="text" placeholder="公司名称:" name="companyname" id="companyname">
                     </li>
                     <li>
-                        <input type="text" placeholder="职位信息:">
+                        <input type="text" placeholder="职位信息:" name="post" id="post">
                     </li>
                     <br clear="all">
                 </ul>
-                <textarea cols="30" rows="10" placeholder="请输入您的备注详细信息:"></textarea>
+                <textarea cols="30" rows="10" placeholder="请输入您的备注详细信息:" name="remark" id="remark"></textarea>
                 <p class="btn-p">
-                    <input type="button" value="提交">
+                    <input type="button" value="提交" onclick="chankform()">
                     <input type="button" value="重置">
                 </p>
             </form>
@@ -271,6 +271,44 @@
 <script>
 
     function chankform() {
+
+        var name = $("#name").val();
+        var phone = $("#phone").val();
+        var address = $("#address").val();
+        var emil = $("#emil").val();
+        var companyname = $("#companyname").val();
+        var post = $("#post").val();
+        alert(name)
+        if (name == null || name == '') {
+            alert("姓名不能为空");
+            return false;
+        }
+        if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
+            alert("电话格式不正确");
+            return false;
+        }
+        if (emil == null || emil == '') {
+            alert("邮箱格式不正确");
+            return false;
+        }
+        if (address == null || address == '') {
+            alert("地址不能为空");
+            return false;
+        }
+        if (post == null || post == '') {
+            alert("职位信息不能为空");
+            return false;
+        }
+        if (companyname == null || companyname == '') {
+            alert("公司名称不能为空");
+            return false;
+        }
+
+        $.post("addUser.html", $("#addUser").serialize(), function (data) {
+            if (data.is) {
+                alert("添加成功")
+            }
+        }, "json");
         return false;
     }
 

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @ClassName ProductServiceImpl
+ * @ClassName UserServiceImpl
  * @Description TODO
  * @Author CaoLong
  * @Date 2019/4/22 15:17
@@ -20,4 +20,12 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl extends BaseService<User> implements UserService {
+
+    @Autowired
+    UserMapper userMapper;
+
+    @Override
+    public int addUser(User user) {
+        return userMapper.addUser(user);
+    }
 }

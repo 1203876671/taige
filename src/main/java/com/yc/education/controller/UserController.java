@@ -26,10 +26,10 @@ public class UserController {
      *
      * @return
      */
-    @RequestMapping("addUser")
+    @RequestMapping("addUser.html")
     public AjaxMessage<User> addUser(User user) {
         AjaxMessage ajaxMessage = new AjaxMessage();
-        int save = userService.save(user);
+        int save = userService.addUser(user);
         if (save > 0) {
             ajaxMessage.setIs(true);
             ajaxMessage.setMsg("添加成功");
@@ -37,6 +37,7 @@ public class UserController {
             ajaxMessage.setMsg("添加失败");
             ajaxMessage.setIs(false);
         }
+        System.out.println(ajaxMessage);
         return ajaxMessage;
     }
 

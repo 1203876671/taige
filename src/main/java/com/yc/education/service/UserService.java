@@ -14,4 +14,10 @@ import java.util.List;
  */
 public interface UserService extends IService<User> {
 
+    /**
+     * 添加
+     *
+     * @return
+     */
+    public int addUser(User user);
 }

@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yc.education.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.yc.education.model.User" >
-    <!--
-      WARNING - @mbggenerated
-    -->
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="address" property="address" jdbcType="VARCHAR" />
-    <result column="companyname" property="companyname" jdbcType="VARCHAR" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="post" property="post" jdbcType="VARCHAR" />
-    <result column="emli" property="emli" jdbcType="VARCHAR" />
-    <result column="remark" property="remark" jdbcType="VARCHAR" />
-  </resultMap>
+<mapper namespace="com.yc.education.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.yc.education.model.User">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="companyname" property="companyname" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="post" property="post" jdbcType="VARCHAR"/>
+        <result column="emli" property="emli" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="addUser">
+        INSERT INTO user (name,address,companyname,phone,post,emli,remark) VALUES(#{name},#{address},#{companyname},#{phone},#{post},#{emli},#{remark})
+    </insert>
+
 </mapper>
