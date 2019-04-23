@@ -42,7 +42,7 @@ public class Product {
     /**
      * 产品用途
      */
-    private String use;
+    private String uses;
 
     /**
      * @return id
@@ -166,21 +166,11 @@ public class Product {
         this.img = img;
     }
 
-    /**
-     * 获取产品用途
-     *
-     * @return use - 产品用途
-     */
-    public String getUse() {
-        return use;
+    public String getUses() {
+        return uses;
     }
 
-    /**
-     * 设置产品用途
-     *
-     * @param use 产品用途
-     */
-    public void setUse(String use) {
-        this.use = use;
+    public void setUses(String uses) {
+        this.uses = uses;
     }
 }

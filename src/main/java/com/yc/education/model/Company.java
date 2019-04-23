@@ -35,6 +35,24 @@ public class Company {
     private String type;
 
     /**
+     * 显示状态0不显示1显示
+     */
+    private Integer state;
+
+    /**
+     * 公司名称
+     */
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * @return id
      */
     public Integer getId() {
@@ -136,5 +154,13 @@ public class Company {
      */
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

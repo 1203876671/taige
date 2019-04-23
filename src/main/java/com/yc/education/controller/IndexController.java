@@ -1,6 +1,7 @@
 package com.yc.education.controller;
 
 import com.yc.education.service.ApplyService;
+import com.yc.education.service.CompanyService;
 import com.yc.education.service.NewsService;
 import com.yc.education.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,12 @@ public class IndexController {
     private NewsService newsService;
 
     /**
+     * 公司
+     */
+    @Autowired
+    private CompanyService companyService;
+
+    /**
      * 首页面绑值
      *
      * @return
@@ -51,6 +58,7 @@ public class IndexController {
         modelAndView.addObject("listNews", newsService.listnewsOrderSortAndDate(1, 1, 10));
         modelAndView.addObject("listNews2", newsService.listnewsOrderSortAndDate(2, 1, 10));
         session.setAttribute("listApply", applyService.listAppply());
+        session.setAttribute("company", companyService.company());
         return modelAndView;
     }
 
@@ -61,5 +69,14 @@ public class IndexController {
     public ModelAndView ask() {
         return new ModelAndView();
     }
+
+    /**
+     * 页面跳转
+     */
+    @RequestMapping("contact")
+    public ModelAndView contact() {
+        return new ModelAndView();
+    }
+
 
 }

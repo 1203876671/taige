@@ -11,10 +11,16 @@
         <result column="emil" property="emil" jdbcType="VARCHAR"/>
         <result column="address" property="address" jdbcType="VARCHAR"/>
         <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="getCompany" resultMap="BaseResultMap">
-        SELECT * FROM company WHERE type = #{0}
+        SELECT * FROM company WHERE type = #{0} AND state = 1
+    </select>
+
+    <select id="company" resultMap="BaseResultMap">
+        SELECT * FROM company WHERE  state = 1
     </select>
 
 </mapper>

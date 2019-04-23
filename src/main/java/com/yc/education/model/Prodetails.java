@@ -1,8 +1,6 @@
 package com.yc.education.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 public class Prodetails {
     @Id
@@ -32,7 +30,22 @@ public class Prodetails {
     /**
      * 产品用途
      */
-    private String use;
+    private String uses;
+
+    /**
+     * 溶剂
+     */
+    private String solvent;
+
+    /**
+     * 适用体系
+     */
+    private String system;
+
+    /**
+     * 外观
+     */
+    private String appearance;
 
     /**
      * @return id
@@ -123,18 +136,72 @@ public class Prodetails {
     /**
      * 获取产品用途
      *
-     * @return use - 产品用途
+     * @return uses - 产品用途
      */
-    public String getUse() {
-        return use;
+    public String getUses() {
+        return uses;
     }
 
     /**
      * 设置产品用途
      *
-     * @param use 产品用途
+     * @param uses 产品用途
      */
-    public void setUse(String use) {
-        this.use = use;
+    public void setUses(String uses) {
+        this.uses = uses;
+    }
+
+    /**
+     * 获取溶剂
+     *
+     * @return solvent - 溶剂
+     */
+    public String getSolvent() {
+        return solvent;
+    }
+
+    /**
+     * 设置溶剂
+     *
+     * @param solvent 溶剂
+     */
+    public void setSolvent(String solvent) {
+        this.solvent = solvent;
+    }
+
+    /**
+     * 获取适用体系
+     *
+     * @return system - 适用体系
+     */
+    public String getSystem() {
+        return system;
+    }
+
+    /**
+     * 设置适用体系
+     *
+     * @param system 适用体系
+     */
+    public void setSystem(String system) {
+        this.system = system;
+    }
+
+    /**
+     * 获取外观
+     *
+     * @return appearance - 外观
+     */
+    public String getAppearance() {
+        return appearance;
+    }
+
+    /**
+     * 设置外观
+     *
+     * @param appearance 外观
+     */
+    public void setAppearance(String appearance) {
+        this.appearance = appearance;
     }
 }

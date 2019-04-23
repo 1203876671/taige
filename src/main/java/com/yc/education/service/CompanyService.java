@@ -18,4 +18,9 @@ public interface CompanyService extends IService<Company> {
      */
     public Company getCompany(int type);
 
+
+    /**
+     * 查看公司
+     */
+    public Company company();
 }

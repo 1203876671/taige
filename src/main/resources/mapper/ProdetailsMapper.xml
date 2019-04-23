@@ -5,12 +5,15 @@
         <!--
           WARNING - @mbggenerated
         -->
-        <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="proid" property="proid" jdbcType="INTEGER"/>
-        <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="ingredients" property="ingredients" jdbcType="VARCHAR"/>
-        <result column="likeproduct" property="likeproduct" jdbcType="VARCHAR"/>
-        <result column="use" property="use" jdbcType="VARCHAR"/>
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="proid" jdbcType="INTEGER" property="proid"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="ingredients" jdbcType="VARCHAR" property="ingredients"/>
+        <result column="likeproduct" jdbcType="VARCHAR" property="likeproduct"/>
+        <result column="uses" jdbcType="VARCHAR" property="uses"/>
+        <result column="solvent" jdbcType="VARCHAR" property="solvent"/>
+        <result column="system" jdbcType="VARCHAR" property="system"/>
+        <result column="appearance" jdbcType="VARCHAR" property="appearance"/>
     </resultMap>
 
     <select id="listProDetails" resultMap="BaseResultMap">

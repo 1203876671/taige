@@ -33,14 +33,14 @@
     <div class="mainbox clearfix">
         <p class="welcome">欢迎进入泰格助剂！</p>
         <div class="top_right clearfix">
-        <span>
-          <i class="icon_tel"></i>
-          <b>021-50796110</b>
-        </span>
+				<span>
+					<i class="icon_tel"></i>
+					<b>${company.phone}</b>
+				</span>
             <span>
-          <i class="icon_fax"></i>
-          <b>stanley.luo@tech-polymer.cn</b>
-        </span>
+					<i class="icon_fax"></i>
+					<b>${company.emil}</b>
+				</span>
         </div>
     </div>
 </div>
@@ -57,16 +57,16 @@
         </div>
         <div class="nav">
             <ul class="navul clearfix dropdown">
-                <li class="navli cur cur-active">
+                <li class="navli">
                     <a href="index.html">首页</a>
                 </li>
                 <li class="navli">
                     <a class="level" href="company.html">关于泰格</a>
                     <div class="level_down">
-                        <a href="company.html">公司简介</a>
-                        <a href="company.html">公司愿景</a>
-                        <a href="company.html">安全环保</a>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=1">公司简介</a>
+                        <a href="company.html?type=2">公司愿景</a>
+                        <a href="company.html?type=3">安全环保</a>
+                        <a href="company.html?type=4">价值传递</a>
                     </div>
                 </li>
                 <li class="navli">
@@ -84,8 +84,8 @@
                         <a href="news.html?type=2">行业动态</a>
                     </div>
                 </li>
-                <li class="navli">
-                    <a class="level" href="application-list.html">应用推荐</a>
+                <li class="navli cur-active">
+                    <a class="level" href="application-list.html?applyid=1">应用推荐</a>
                     <div class="level_down">
                         <c:forEach items="${listApply}" var="listApply">
                             <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
@@ -408,16 +408,16 @@
                 <dl>
                     <dt>关于泰格</dt>
                     <dd>
-                        <a href="company.html">公司简介</a>
+                        <a href="company.html?type=1">公司简介</a>
                     </dd>
                     <dd>
-                        <a href="company.html">公司愿景</a>
+                        <a href="company.html?type=2">公司愿景</a>
                     </dd>
                     <dd>
-                        <a href="company.html">安全环保</a>
+                        <a href="company.html?type=3">安全环保</a>
                     </dd>
                     <dd>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=3">价值传递</a>
                     </dd>
                 </dl>
 
@@ -433,27 +433,11 @@
 
                 <dl>
                     <dt>产品中心</dt>
-                    <dd>
-                        <a href="download.html">分散剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流平剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">消泡剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">基材润湿剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">附着力促进剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">特用助剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流变助剂</a>
-                    </dd>
+                    <c:forEach items="${listProduct}" var="listProduct">
+                        <dd>
+                            <a href="download.html?proid=${listProduct.id}">${listProduct.name}</a>
+                        </dd>
+                    </c:forEach>
                 </dl>
 
                 <dl>
@@ -481,7 +465,7 @@
                 </dl>
             </div>
             <div class="footer_bot">
-                <p>上海泰格聚合物技术有限公司 电话：021-50796110 传真：021-50796113 地址：上海市浦东新区张江路665号德宏大厦602室</p>
+                <p>${company.name} 电话：${company.phone} 邮箱：${company.emil} 地址：${company.address}</p>
                 <p>版权所有 2016-2018 沪ICP备09072940号-1 网站制作：杰冠网络</p>
             </div>
         </div>

@@ -49,5 +49,27 @@ public class ProductController {
         return modelAndView;
     }
 
+    /**
+     * 查看所有产品
+     *
+     * @return
+     */
+    @RequestMapping("download-list")
+    public ModelAndView downloadList() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("listProduct", productService.listProduct());
+        return modelAndView;
+    }
+
+    /**
+     * 根据ID查找
+     */
+    @RequestMapping("parameter")
+    public ModelAndView parameter(int id) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("product", prodetailsService.selectByKey(id));
+        return modelAndView;
+    }
+
 
 }

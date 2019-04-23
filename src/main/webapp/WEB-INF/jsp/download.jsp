@@ -39,11 +39,11 @@
         <div class="top_right clearfix">
 				<span>
 					<i class="icon_tel"></i>
-					<b>021-50796110</b>
+					<b>${company.phone}</b>
 				</span>
             <span>
 					<i class="icon_fax"></i>
-					<b>stanley.luo@tech-polymer.cn</b>
+					<b>${company.emil}</b>
 				</span>
         </div>
     </div>
@@ -175,12 +175,12 @@
         </div>
         <c:forEach items="${listProDetails}" var="listProDetails">
             <div class="dl-list">
-                <a class="dl-list-con" href="parameter.html">
+                <a class="dl-list-con" href="parameter.html?id=${listProDetails.id}">
                     <ul class="clearfix">
                         <li>${listProDetails.name}</li>
                         <li>${listProDetails.likeproduct}</li>
                         <li>${listProDetails.ingredients}</li>
-                        <li>${listProDetails.use}</li>
+                        <li>${listProDetails.uses}</li>
                     </ul>
                 </a>
                 <div class="dl-pdf">
@@ -230,16 +230,16 @@
                 <dl>
                     <dt>关于泰格</dt>
                     <dd>
-                        <a href="company.html">公司简介</a>
+                        <a href="company.html?type=1">公司简介</a>
                     </dd>
                     <dd>
-                        <a href="company.html">公司愿景</a>
+                        <a href="company.html?type=2">公司愿景</a>
                     </dd>
                     <dd>
-                        <a href="company.html">安全环保</a>
+                        <a href="company.html?type=3">安全环保</a>
                     </dd>
                     <dd>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=3">价值传递</a>
                     </dd>
                 </dl>
 
@@ -287,7 +287,7 @@
                 </dl>
             </div>
             <div class="footer_bot">
-                <p>上海泰格聚合物技术有限公司 电话：021-50796110 传真：021-50796113 地址：上海市浦东新区张江路665号德宏大厦602室</p>
+                <p>${company.name} 电话：${company.phone} 邮箱：${company.emil} 地址：${company.address}</p>
                 <p>版权所有 2016-2018 沪ICP备09072940号-1 网站制作：杰冠网络</p>
             </div>
         </div>

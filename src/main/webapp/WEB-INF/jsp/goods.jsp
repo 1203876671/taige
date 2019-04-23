@@ -34,11 +34,11 @@
         <div class="top_right clearfix">
 				<span>
 					<i class="icon_tel"></i>
-					<b>021-50796110</b>
+					<b>${company.phone}</b>
 				</span>
             <span>
 					<i class="icon_fax"></i>
-					<b>stanley.luo@tech-polymer.cn</b>
+					<b>${company.emil}</b>
 				</span>
         </div>
     </div>
@@ -80,7 +80,7 @@
                     <a class="level" href="news.html">新闻资讯</a>
                     <div class="level_down">
                         <a href="news.html">公司新闻</a>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </div>
                 </li>
                 <li class="navli cur-active">
@@ -227,7 +227,7 @@
                 </dl>
             </div>
             <div class="footer_bot">
-                <p>上海泰格聚合物技术有限公司 电话：021-50796110 传真：021-50796113 地址：上海市浦东新区张江路665号德宏大厦602室</p>
+                <p>${company.name} 电话：${company.phone} 邮箱：${company.emil} 地址：${company.address}</p>
                 <p>版权所有 2016-2018 沪ICP备09072940号-1 网站制作：杰冠网络</p>
             </div>
         </div>

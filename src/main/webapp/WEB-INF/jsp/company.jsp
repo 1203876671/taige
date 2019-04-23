@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html style="font-size: 100px;">
@@ -34,11 +35,11 @@
         <div class="top_right clearfix">
 				<span>
 					<i class="icon_tel"></i>
-					<b>021-50796110</b>
+					<b>${company.phone}</b>
 				</span>
             <span>
 					<i class="icon_fax"></i>
-					<b>stanley.luo@tech-polymer.cn</b>
+					<b>${company.emil}</b>
 				</span>
         </div>
     </div>
@@ -59,7 +60,7 @@
                 <li class="navli">
                     <a href="index.html">首页</a>
                 </li>
-                <li class="navli cur-active">
+                <li class="navli">
                     <a class="level" href="company.html">关于泰格</a>
                     <div class="level_down">
                         <a href="company.html?type=1">公司简介</a>
@@ -71,27 +72,24 @@
                 <li class="navli">
                     <a class="level" href="goods.html">产品中心</a>
                     <div class="level_down">
-                        <a href="download.html">分散剂</a>
-                        <a href="download.html">流平剂</a>
-                        <a href="download.html">消泡剂</a>
-                        <a href="download.html">基材润湿剂</a>
-                        <a href="download.html">附着力促进剂</a>
-                        <a href="download.html">特用助剂</a>
-                        <a href="download.html">流变助剂</a>
+                        <c:forEach items="${listProduct}" var="listProduct">
+                            <a href="download.html">${listProduct.name}</a>
+                        </c:forEach>
                     </div>
                 </li>
                 <li class="navli">
                     <a class="level" href="news.html">新闻资讯</a>
                     <div class="level_down">
                         <a href="news.html">公司新闻</a>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </div>
                 </li>
-                <li class="navli">
-                    <a class="level" href="application-list-shui.html">应用推荐</a>
+                <li class="navli cur-active">
+                    <a class="level" href="application-list.html?applyid=1">应用推荐</a>
                     <div class="level_down">
-                        <a href="application-list-shui.html">水性体系</a>
-                        <a href="application-list-you.html">油性体系</a>
+                        <c:forEach items="${listApply}" var="listApply">
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </c:forEach>
                         <a href="ask.html">样品索取</a>
                         <a href="download-list.html">资料下载</a>
                     </div>
@@ -134,7 +132,7 @@
 </div>
 <!--company_banner-->
 <div class="company_banner banner-public"
-     style="background: url(images/company_banner.jpg)  repeat-x center top; background-size:cover;">
+     style="background: url(${pageContext.request.contextPath}/static/images/company_banner.jpg)  repeat-x center top; background-size:cover;">
     <h2>关于泰格</h2>
     <span></span>
     <p>ABOUT THE TIGER IS VERY EXCTING, SEE EVERYTHING</p>
@@ -148,7 +146,7 @@
     </div>
 </div>
 <div class="footer_banner">
-    <img src="images/footer_banner.jpg"/>
+    <img src="${pageContext.request.contextPath}/static/images/footer_banner.jpg"/>
     <div class="footer_mask">
         <div class="footer_mask_center">
             <h3>价值传递</h3>
@@ -174,7 +172,7 @@
                         <a href="company.html?type=3">安全环保</a>
                     </dd>
                     <dd>
-                        <a href="company.html?type=4">价值传递</a>
+                        <a href="company.html?type=3">价值传递</a>
                     </dd>
                 </dl>
 
@@ -184,7 +182,7 @@
                         <a href="news.html">公司新闻</a>
                     </dd>
                     <dd>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </dd>
                 </dl>
 
@@ -199,12 +197,11 @@
 
                 <dl>
                     <dt>应用推荐</dt>
-                    <dd>
-                        <a href="application-list-shui.html">水性体系</a>
-                    </dd>
-                    <dd>
-                        <a href="application-list-you.html">油性体系</a>
-                    </dd>
+                    <c:forEach items="${listApply}" var="listApply">
+                        <dd>
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </dd>
+                    </c:forEach>
                     <dd>
                         <a href="ask.html">样品索取</a>
                     </dd>
@@ -223,14 +220,14 @@
                 </dl>
             </div>
             <div class="footer_bot">
-                <p>上海泰格聚合物技术有限公司 电话：021-50796110 传真：021-50796113 地址：上海市浦东新区张江路665号德宏大厦602室</p>
+                <p>${company.name} 电话：${company.phone} 邮箱：${company.emil} 地址：${company.address}</p>
                 <p>版权所有 2016-2018 沪ICP备09072940号-1 网站制作：杰冠网络</p>
             </div>
         </div>
 
         <div class="footer_logo aos-animate" data-aos-duration="300" data-aos-delay="100" data-aos="fade-left">
-            <img src="images/footer-top-logo.png" style="width: 260px;">
-            <img src="images/footer_logo.png">
+            <img src="${pageContext.request.contextPath}/static/images/footer-top-logo.png" style="width: 260px;">
+            <img src="${pageContext.request.contextPath}/static/images/footer_logo.png">
         </div>
     </div>
 </div>

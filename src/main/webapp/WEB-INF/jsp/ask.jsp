@@ -40,11 +40,11 @@
         <div class="top_right clearfix">
 				<span>
 					<i class="icon_tel"></i>
-					<b>021-50796110</b>
+					<b>${company.phone}</b>
 				</span>
             <span>
 					<i class="icon_fax"></i>
-					<b>stanley.luo@tech-polymer.cn</b>
+					<b>${company.emil}</b>
 				</span>
         </div>
     </div>
@@ -256,7 +256,7 @@
                 </dl>
             </div>
             <div class="footer_bot">
-                <p>上海泰格聚合物技术有限公司 电话：021-50796110 传真：021-50796113 地址：上海市浦东新区张江路665号德宏大厦602室</p>
+                <p>${company.name} 电话：${company.phone} 邮箱：${company.emil} 地址：${company.address}</p>
                 <p>版权所有 2016-2018 沪ICP备09072940号-1 网站制作：杰冠网络</p>
             </div>
         </div>
@@ -278,7 +278,6 @@
         var emil = $("#emil").val();
         var companyname = $("#companyname").val();
         var post = $("#post").val();
-        alert(name)
         if (name == null || name == '') {
             alert("姓名不能为空");
             return false;
@@ -287,7 +286,7 @@
             alert("电话格式不正确");
             return false;
         }
-        if (emil == null || emil == '') {
+        if (!(/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g).test(emil)) {
             alert("邮箱格式不正确");
             return false;
         }
@@ -303,12 +302,11 @@
             alert("公司名称不能为空");
             return false;
         }
-
         $.post("addUser.html", $("#addUser").serialize(), function (data) {
             if (data.is) {
-                alert("添加成功")
             }
         }, "json");
+        alert("添加成功")
         return false;
     }
 

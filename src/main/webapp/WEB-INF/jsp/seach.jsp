@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html style="font-size:100px">
@@ -410,16 +411,16 @@
                 <dl>
                     <dt>关于泰格</dt>
                     <dd>
-                        <a href="company.html">公司简介</a>
+                        <a href="company.html?type=1">公司简介</a>
                     </dd>
                     <dd>
-                        <a href="company.html">公司愿景</a>
+                        <a href="company.html?type=2">公司愿景</a>
                     </dd>
                     <dd>
-                        <a href="company.html">安全环保</a>
+                        <a href="company.html?type=3">安全环保</a>
                     </dd>
                     <dd>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=3">价值传递</a>
                     </dd>
                 </dl>
 
@@ -429,43 +430,26 @@
                         <a href="news.html">公司新闻</a>
                     </dd>
                     <dd>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </dd>
                 </dl>
 
                 <dl>
                     <dt>产品中心</dt>
-                    <dd>
-                        <a href="download.html">分散剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流平剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">消泡剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">基材润湿剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">附着力促进剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">特用助剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流变助剂</a>
-                    </dd>
+                    <c:forEach items="${listProduct}" var="listProduct">
+                        <dd>
+                            <a href="download.html?proid=${listProduct.id}">${listProduct.name}</a>
+                        </dd>
+                    </c:forEach>
                 </dl>
 
                 <dl>
                     <dt>应用推荐</dt>
-                    <dd>
-                        <a href="application-list-shui.html">水性体系</a>
-                    </dd>
-                    <dd>
-                        <a href="application-list-you.html">油性体系</a>
-                    </dd>
+                    <c:forEach items="${listApply}" var="listApply">
+                        <dd>
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </dd>
+                    </c:forEach>
                     <dd>
                         <a href="ask.html">样品索取</a>
                     </dd>
@@ -484,7 +468,7 @@
                 </dl>
             </div>
             <div class="footer_bot">
-                <p>上海泰格聚合物技术有限公司 电话：021-50796110 传真：021-50796113 地址：上海市浦东新区张江路665号德宏大厦602室</p>
+                <p>${company.name} 电话：${company.phone} 邮箱：${company.emil} 地址：${company.address}</p>
                 <p>版权所有 2016-2018 沪ICP备09072940号-1 网站制作：杰冠网络</p>
             </div>
         </div>

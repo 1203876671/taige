@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html style="font-size: 100px;">
@@ -34,11 +35,11 @@
         <div class="top_right clearfix">
 				<span>
 					<i class="icon_tel"></i>
-					<b>021-50796110</b>
+					<b>${company.phone}</b>
 				</span>
             <span>
 					<i class="icon_fax"></i>
-					<b>stanley.luo@tech-polymer.cn</b>
+					<b>${company.emil}</b>
 				</span>
         </div>
     </div>
@@ -46,8 +47,8 @@
 
 <div class="header">
     <div class="mainbox clearfix header_nav">
-        <a class="logo" href="index.jsp">
-            <img src="images/logo.png">
+        <a class="logo" href="index.html">
+            <img src="${pageContext.request.contextPath}/static/images/logo.png">
         </a>
         <div class="munes">
             <span class="mune1"></span>
@@ -57,46 +58,43 @@
         <div class="nav">
             <ul class="navul clearfix dropdown">
                 <li class="navli">
-                    <a href="index.jsp">首页</a>
+                    <a href="index.html">首页</a>
                 </li>
                 <li class="navli">
                     <a class="level" href="company.html">关于泰格</a>
                     <div class="level_down">
-                        <a href="company.html">公司简介</a>
-                        <a href="company.html">公司愿景</a>
-                        <a href="company.html">安全环保</a>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=1">公司简介</a>
+                        <a href="company.html?type=2">公司愿景</a>
+                        <a href="company.html?type=3">安全环保</a>
+                        <a href="company.html?type=4">价值传递</a>
                     </div>
                 </li>
                 <li class="navli">
                     <a class="level" href="goods.html">产品中心</a>
                     <div class="level_down">
-                        <a href="download.html">分散剂</a>
-                        <a href="download.html">流平剂</a>
-                        <a href="download.html">消泡剂</a>
-                        <a href="download.html">基材润湿剂</a>
-                        <a href="download.html">附着力促进剂</a>
-                        <a href="download.html">特用助剂</a>
-                        <a href="download.html">流变助剂</a>
+                        <c:forEach items="${listProduct}" var="listProduct">
+                            <a href="download.html">${listProduct.name}</a>
+                        </c:forEach>
                     </div>
                 </li>
                 <li class="navli">
                     <a class="level" href="news.html">新闻资讯</a>
                     <div class="level_down">
                         <a href="news.html">公司新闻</a>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </div>
                 </li>
-                <li class="navli">
-                    <a class="level" href="application-list-shui.html">应用推荐</a>
+                <li class="navli cur-active">
+                    <a class="level" href="application-list.html?applyid=1">应用推荐</a>
                     <div class="level_down">
-                        <a href="application-list-shui.html">水性体系</a>
-                        <a href="application-list-you.html">油性体系</a>
+                        <c:forEach items="${listApply}" var="listApply">
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </c:forEach>
                         <a href="ask.html">样品索取</a>
                         <a href="download-list.html">资料下载</a>
                     </div>
                 </li>
-                <li class="navli cur-active">
+                <li class="navli">
                     <a class="level" href="contact.html">联系我们</a>
                     <div class="level_down">
                         <a href="contact.html">联系方式</a>
@@ -133,7 +131,7 @@
     </script>
 </div>
 <div class="contact_banner banner-public"
-     style="background: url(images/350.png) repeat-x center top;background-size:cover;">
+     style="background: url(${pageContext.request.contextPath}/static/images/350.png) repeat-x center top;background-size:cover;">
     <h2>联系我们</h2>
     <span></span>
     <p>CONTACT US IS VERY EXCTING, SEE EVERYTHING</p>
@@ -145,17 +143,17 @@
                 <h2>联系我们
                 </h2>
                 <p>CONTACT</p>
-                <input type="text" placeholder="姓名"/>
-                <input type="text" placeholder="邮箱"/>
-                <input type="text" placeholder="电话"/>
-                <textarea placeholder="内容"></textarea>
-                <button>确定</button>
+                <input type="text" placeholder="姓名" name="name" id="name"/>
+                <input type="text" placeholder="邮箱" name="emil" id="emil"/>
+                <input type="text" placeholder="电话" name="phone" id="phone"/>
+                <textarea placeholder="内容" name="remark" id="remark"></textarea>
+                <button onclick="ajax()">确定</button>
             </div>
             <div class="info_right">
-                <h2>上海泰格聚合物技术有限公司</h2>
-                <p>电话：021-50796110 </p>
-                <p>传真：021-50796113</p>
-                <p>地址：上海市浦东新区张江路665号德宏大厦602室</p>
+                <h2>${company.name}</h2>
+                <p>电话：${company.phone} </p>
+                <p>邮箱：${company.emil}</p>
+                <p>地址：${company.address}</p>
             </div>
         </div>
         <div class="contact_map">
@@ -170,16 +168,16 @@
                 <dl>
                     <dt>关于泰格</dt>
                     <dd>
-                        <a href="company.html">公司简介</a>
+                        <a href="company.html?type=1">公司简介</a>
                     </dd>
                     <dd>
-                        <a href="company.html">公司愿景</a>
+                        <a href="company.html?type=2">公司愿景</a>
                     </dd>
                     <dd>
-                        <a href="company.html">安全环保</a>
+                        <a href="company.html?type=3">安全环保</a>
                     </dd>
                     <dd>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=3">价值传递</a>
                     </dd>
                 </dl>
 
@@ -189,43 +187,26 @@
                         <a href="news.html">公司新闻</a>
                     </dd>
                     <dd>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </dd>
                 </dl>
 
                 <dl>
                     <dt>产品中心</dt>
-                    <dd>
-                        <a href="download.html">分散剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流平剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">消泡剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">基材润湿剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">附着力促进剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">特用助剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流变助剂</a>
-                    </dd>
+                    <c:forEach items="${listProduct}" var="listProduct">
+                        <dd>
+                            <a href="download.html?proid=${listProduct.id}">${listProduct.name}</a>
+                        </dd>
+                    </c:forEach>
                 </dl>
 
                 <dl>
                     <dt>应用推荐</dt>
-                    <dd>
-                        <a href="application-list-shui.html">水性体系</a>
-                    </dd>
-                    <dd>
-                        <a href="application-list-you.html">油性体系</a>
-                    </dd>
+                    <c:forEach items="${listApply}" var="listApply">
+                        <dd>
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </dd>
+                    </c:forEach>
                     <dd>
                         <a href="ask.html">样品索取</a>
                     </dd>
@@ -244,14 +225,14 @@
                 </dl>
             </div>
             <div class="footer_bot">
-                <p>上海泰格聚合物技术有限公司 电话：021-50796110 传真：021-50796113 地址：上海市浦东新区张江路665号德宏大厦602室</p>
+                <p>${company.name} 电话：${company.phone} 邮箱：${company.emil} 地址：${company.address}</p>
                 <p>版权所有 2016-2018 沪ICP备09072940号-1 网站制作：杰冠网络</p>
             </div>
         </div>
 
         <div class="footer_logo aos-animate" data-aos-duration="300" data-aos-delay="100" data-aos="fade-left">
-            <img src="images/footer-top-logo.png" style="width: 260px;">
-            <img src="images/footer_logo.png">
+            <img src="${pageContext.request.contextPath}/static/images/footer-top-logo.png" style="width: 260px;">
+            <img src="${pageContext.request.contextPath}/static/images/footer_logo.png">
         </div>
     </div>
 </div>
@@ -276,6 +257,34 @@
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Yp9062LbFzGcPihwzzRzGqdB"></script>
 <script src="${pageContext.request.contextPath}/static/js/header_footer.js"></script>
 <script type="text/javascript">
+
+    /**
+     * 提交表单
+     */
+    function ajax() {
+        var name = $("#name").val()
+        var emil = $("#emil").val()
+        var phone = $("#phone").val()
+        var remark = $("#remark").val()
+        if (name == null || name == "") {
+            alert("姓名不能为空");
+            return false;
+        }
+        if (!(/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g).test(emil)) {
+            alert("邮箱格式有误");
+            return false;
+        }
+        if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
+            alert("手机格式有误");
+            return false;
+        }
+        $.post("contat.html", {"name": name, "emil": emil, "phone": phone, "remark": remark}, function (date) {
+            if (date.is) {
+            }
+        });
+        alert("添加成功")
+    }
+
     //创建和初始化地图函数：
     function initMap() {
         createMap(); //创建地图

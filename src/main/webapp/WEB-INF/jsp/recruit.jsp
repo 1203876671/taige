@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html style="font-size: 100px;">
@@ -34,11 +35,11 @@
         <div class="top_right clearfix">
 				<span>
 					<i class="icon_tel"></i>
-					<b>021-50796110</b>
+					<b>${company.phone}</b>
 				</span>
             <span>
 					<i class="icon_fax"></i>
-					<b>stanley.luo@tech-polymer.cn</b>
+					<b>${company.emil}</b>
 				</span>
         </div>
     </div>
@@ -46,8 +47,8 @@
 
 <div class="header">
     <div class="mainbox clearfix header_nav">
-        <a class="logo" href="index.jsp">
-            <img src="images/logo.png">
+        <a class="logo" href="index.html">
+            <img src="${pageContext.request.contextPath}/static/images/logo.png">
         </a>
         <div class="munes">
             <span class="mune1"></span>
@@ -57,50 +58,46 @@
         <div class="nav">
             <ul class="navul clearfix dropdown">
                 <li class="navli">
-                    <a href="index.jsp">首页</a>
+                    <a href="index.html">首页</a>
                 </li>
                 <li class="navli">
                     <a class="level" href="company.html">关于泰格</a>
                     <div class="level_down">
-                        <a href="company.html">公司简介</a>
-                        <a href="company.html">公司愿景</a>
-                        <a href="company.html">安全环保</a>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=1">公司简介</a>
+                        <a href="company.html?type=2">公司愿景</a>
+                        <a href="company.html?type=3">安全环保</a>
+                        <a href="company.html?type=4">价值传递</a>
                     </div>
                 </li>
                 <li class="navli">
                     <a class="level" href="goods.html">产品中心</a>
                     <div class="level_down">
-                        <a href="download.html">分散剂</a>
-                        <a href="download.html">流平剂</a>
-                        <a href="download.html">消泡剂</a>
-                        <a href="download.html">基材润湿剂</a>
-                        <a href="download.html">附着力促进剂</a>
-                        <a href="download.html">特用助剂</a>
-                        <a href="download.html">流变助剂</a>
+                        <c:forEach items="${listProduct}" var="listProduct">
+                            <a href="download.html">${listProduct.name}</a>
+                        </c:forEach>
                     </div>
                 </li>
                 <li class="navli">
                     <a class="level" href="news.html">新闻资讯</a>
                     <div class="level_down">
                         <a href="news.html">公司新闻</a>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </div>
                 </li>
-                <li class="navli">
-                    <a class="level" href="application-list-shui.html">应用推荐</a>
+                <li class="navli cur-active">
+                    <a class="level" href="application-list.html?applyid=1">应用推荐</a>
                     <div class="level_down">
-                        <a href="application-list-shui.html">水性体系</a>
-                        <a href="application-list-you.html">油性体系</a>
+                        <c:forEach items="${listApply}" var="listApply">
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </c:forEach>
                         <a href="ask.html">样品索取</a>
                         <a href="download-list.html">资料下载</a>
                     </div>
                 </li>
-                <li class="navli cur-active">
+                <li class="navli">
                     <a class="level" href="contact.html">联系我们</a>
                     <div class="level_down">
                         <a href="contact.html">联系方式</a>
-
                         <a href="recruit.html">人才招聘</a>
                     </div>
                 </li>
@@ -147,52 +144,9 @@
             <h4 id="recruit-h4">人才招聘</h4>
             <p>TALENT RECRUITMEMT</p>
             <div class="news_content">
-                <div class="recruit">
-                    <h3>研发工程师(IOS)</h3>
-                    <dl>
-                        <dt>岗位职责：</dt>
-                        <dd>1.为永佳移动端的发展负责，我们给你产品发展方面足够的发挥和想象空间，与产品经理协同，共同推动永佳产品向移动方向的发展与创新；</dd>
-                        <dd>2. 移动端产品，IOS客户端及SDK的技术方案设计和开发；</dd>
-                        <dd>3.参与移动技术方案的研究，设计和实现、关键技术验证等工作；</dd>
-                        <dd>4.构建高性能可扩展的组件，打造稳定可复用的开发框架。</dd>
-                    </dl>
-                    <dl>
-                        <dt>任职要求：：</dt>
-                        <dd>1. 熟悉cocoa touch，core data，iOS runtime，精通OS X/iOS下的并行开发、网络、内存管理、GUI开发；</dd>
-                        <dd>2. 拥有很好的设计模式和思维, 熟悉面向对象编程，图形界面开发；</dd>
-                        <dd>3. 学习能力强，强烈的责任心,具有较强的沟通能力及团队合作精神；</dd>
-                        <dd>5. 多年iOS客户端开发经验，熟悉REST Application的开发；有成功案例；</dd>
-                        <dd>6. 对iOS的UI控件有优化经验者优先；有前端开发经验者优先；</dd>
-                        <dd>7. 已在App Store发布过作品者优先；</dd>
-                        <dd>8. 有移动社交产品开发经验者优先；</dd>
-                        <dd>9、有电子商务经验优先</dd>
-                    </dl>
-                </div>
-                <div class="recruit">
-                    <h3>研发工程师(IOS)</h3>
-                    <dl>
-                        <dt>岗位职责：</dt>
-                        <dd>1.为永佳移动端的发展负责，我们给你产品发展方面足够的发挥和想象空间，与产品经理协同，共同推动永佳产品向移动方向的发展与创新；</dd>
-                        <dd>2. 移动端产品，IOS客户端及SDK的技术方案设计和开发；</dd>
-                        <dd>3.参与移动技术方案的研究，设计和实现、关键技术验证等工作；</dd>
-                        <dd>4.构建高性能可扩展的组件，打造稳定可复用的开发框架。</dd>
-                    </dl>
-                    <dl>
-                        <dt>任职要求：：</dt>
-                        <dd>1. 熟悉cocoa touch，core data，iOS runtime，精通OS X/iOS下的并行开发、网络、内存管理、GUI开发；</dd>
-                        <dd>2. 拥有很好的设计模式和思维, 熟悉面向对象编程，图形界面开发；</dd>
-                        <dd>3. 学习能力强，强烈的责任心,具有较强的沟通能力及团队合作精神；</dd>
-                        <dd>5. 多年iOS客户端开发经验，熟悉REST Application的开发；有成功案例；</dd>
-                        <dd>6. 对iOS的UI控件有优化经验者优先；有前端开发经验者优先；</dd>
-                        <dd>7. 已在App Store发布过作品者优先；</dd>
-                        <dd>8. 有移动社交产品开发经验者优先；</dd>
-                        <dd>9、有电子商务经验优先</dd>
-                    </dl>
-                </div>
-
+                ${invite.context}
             </div>
         </div>
-
     </div>
 
 </div>
@@ -203,16 +157,16 @@
                 <dl>
                     <dt>关于泰格</dt>
                     <dd>
-                        <a href="company.html">公司简介</a>
+                        <a href="company.html?type=1">公司简介</a>
                     </dd>
                     <dd>
-                        <a href="company.html">公司愿景</a>
+                        <a href="company.html?type=2">公司愿景</a>
                     </dd>
                     <dd>
-                        <a href="company.html">安全环保</a>
+                        <a href="company.html?type=3">安全环保</a>
                     </dd>
                     <dd>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=3">价值传递</a>
                     </dd>
                 </dl>
 
@@ -222,43 +176,26 @@
                         <a href="news.html">公司新闻</a>
                     </dd>
                     <dd>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </dd>
                 </dl>
 
                 <dl>
                     <dt>产品中心</dt>
-                    <dd>
-                        <a href="download.html">分散剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流平剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">消泡剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">基材润湿剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">附着力促进剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">特用助剂</a>
-                    </dd>
-                    <dd>
-                        <a href="download.html">流变助剂</a>
-                    </dd>
+                    <c:forEach items="${listProduct}" var="listProduct">
+                        <dd>
+                            <a href="download.html?proid=${listProduct.id}">${listProduct.name}</a>
+                        </dd>
+                    </c:forEach>
                 </dl>
 
                 <dl>
                     <dt>应用推荐</dt>
-                    <dd>
-                        <a href="application-list-shui.html">水性体系</a>
-                    </dd>
-                    <dd>
-                        <a href="application-list-you.html">油性体系</a>
-                    </dd>
+                    <c:forEach items="${listApply}" var="listApply">
+                        <dd>
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </dd>
+                    </c:forEach>
                     <dd>
                         <a href="ask.html">样品索取</a>
                     </dd>
@@ -277,7 +214,7 @@
                 </dl>
             </div>
             <div class="footer_bot">
-                <p>上海泰格聚合物技术有限公司 电话：021-50796110 传真：021-50796113 地址：上海市浦东新区张江路665号德宏大厦602室</p>
+                <p>${company.name} 电话：${company.phone} 邮箱：${company.emil} 地址：${company.address}</p>
                 <p>版权所有 2016-2018 沪ICP备09072940号-1 网站制作：杰冠网络</p>
             </div>
         </div>

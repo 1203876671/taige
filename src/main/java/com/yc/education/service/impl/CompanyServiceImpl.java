@@ -24,4 +24,9 @@ public class CompanyServiceImpl extends BaseService<Company> implements CompanyS
     public Company getCompany(int type) {
         return companyMapper.getCompany(type);
     }
+
+    @Override
+    public Company company() {
+        return companyMapper.company();
+    }
 }

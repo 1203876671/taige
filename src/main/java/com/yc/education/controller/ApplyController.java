@@ -1,5 +1,6 @@
 package com.yc.education.controller;
 
+import com.yc.education.service.ApplyService;
 import com.yc.education.service.DetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ public class ApplyController {
     @Autowired
     private DetailsService detailsService;
 
+    @Autowired
+    private ApplyService applyService;
 
     /**
      * 根据applyid取对象
@@ -31,6 +34,18 @@ public class ApplyController {
     public ModelAndView listDetails(@RequestParam(required = false, defaultValue = "1") int applyid) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("details", detailsService.listDetails(applyid));
+        return modelAndView;
+    }
+
+    /**
+     * 根据applyid取对象
+     *
+     * @return
+     */
+    @RequestMapping("application")
+    public ModelAndView application() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("apply", applyService.listAppply());
         return modelAndView;
     }
 

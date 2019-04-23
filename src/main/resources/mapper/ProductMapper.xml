@@ -12,7 +12,7 @@
         <result column="likeproduct" property="likeproduct" jdbcType="VARCHAR"/>
         <result column="introduction" property="introduction" jdbcType="VARCHAR"/>
         <result column="img" property="img" jdbcType="VARCHAR"/>
-        <result column="use" property="use" jdbcType="VARCHAR"/>
+        <result column="uses" property="uses" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="listProduct" resultMap="BaseResultMap">
