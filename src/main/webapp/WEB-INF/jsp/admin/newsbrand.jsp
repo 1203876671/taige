@@ -1,5 +1,13 @@
-﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%
+    String base = pageContext.getServletContext().getContextPath();
+%>
+<script type="text/javascript">
+    window.UEDITOR_SERVER_URL = '<%=base%>';
+</script>
 <html>
 <head>
     <meta charset="utf-8">
@@ -32,32 +40,45 @@
     <title>品牌管理</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 产品管理 <span
-        class="c-gray en">&gt;</span> 品牌管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
-                                              href="javascript:location.replace(location.href);" title="刷新"><i
-        class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 新闻咨询 <span
+        class="c-gray en">&gt;</span>
+    <c:if test="${type==1}">
+        新闻管理
+    </c:if>
+    <c:if test="${type==2}">
+        动态管理
+    </c:if>
+    <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+       href="javascript:location.replace(location.href);" title="刷新"><i
+            class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
     <div class="text-c">
-        <form class="Huiform" method="post" action="${pageContext.request.contextPath}/news/newsbrand.html"
-              target="_self">
-            <input type="text" placeholder="新闻名称" name="title" value="" class="input-text" style="width:120px">
-            </span>
-            <button type="submit" class="btn btn-success" id="" name=""><i
-                    class="Hui-iconfont">&#xe600;</i> 查询
-            </button>
-        </form>
+        <%--<form class="Huiform" method="post" action="${pageContext.request.contextPath}/admin/newsbrand.html"--%>
+        <%--target="_self">--%>
+        <%--<input type="text" placeholder="新闻名称" name="name" value="" class="input-text" style="width:120px">--%>
+        <%--</span>--%>
+        <%--<button type="submit" class="btn btn-success" id="" name=""><i--%>
+        <%--class="Hui-iconfont">&#xe600;</i> 查询--%>
+        <%--</button>--%>
+        <%--</form>--%>
     </div>
-    <div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l"><a href="javascript:;" onclick="datadel()"
-                                                               class="btn btn-danger radius" id="delete"><i
-            class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span>
-        <a class="btn btn-primary radius" href="${pageContext.request.contextPath}/news/newsadd.html"><i
-                class="Hui-iconfont">&#xe600;</i> 添加新闻</a>
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
+        <%--<span class="l"><a href="javascript:;" onclick="datadel()"--%>
+        <%--class="btn btn-danger radius" id="delete"><i--%>
+        <%--class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span>--%>
+        <a class="btn btn-primary radius" href="newsadd.html?type=${type}"><i
+                class="Hui-iconfont">&#xe600;</i> <c:if test="${type==1}">
+            添加新闻
+        </c:if>
+            <c:if test="${type==2}">
+                添加动态
+            </c:if></a>
         <span class="r data_num">共有数据：<strong>${pageInfo.total }</strong> 条</span></div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-bg table-sort">
             <thead>
             <tr class="text-c">
-                <th width="25"><input type="checkbox" name="" value="" id="sltall"></th>
+                <%--<th width="25"><input type="checkbox" name="" value="" id="sltall"></th>--%>
                 <th width="70">新闻ID</th>
                 <th width="80">新闻名称</th>
                 <th width="200">新闻作者</th>
@@ -69,8 +90,8 @@
             </thead>
             <tbody>
             <c:forEach items="${pageInfo.list}" var="itme">
-                <tr class="text-c" >
-                    <td><input name="allid" type="checkbox" value="${itme.id}"></td>
+                <tr class="text-c">
+                        <%--<td><input name="allid" type="checkbox" value="${itme.id}"></td>--%>
                     <td>${itme.id}</td>
                     <td>${itme.title}</td>
                     <td>${itme.author}</td>
@@ -93,26 +114,26 @@
         <section>
             <div class="bd points-goods-list">
                 <ul class="pages">
-                    <li><a href="newsbrand.html?page=1&rows=${pageInfo.pageSize }">首页</a></li>
+                    <li><a href="newsbrand.html?page=1&rows=${pageInfo.pageSize }&type=${type}">首页</a></li>
                     <li class="prev"><a
-                            href="newsbrand.html?page=${pageInfo.prePage}&rows=${pageInfo.pageSize }">上一页</a>
+                            href="newsbrand.html?page=${pageInfo.prePage}&rows=${pageInfo.pageSize }&type=${type}">上一页</a>
                     </li>
                     <c:forEach items="${pageInfo.navigatepageNums}" var="nav">
                         <c:if test="${nav == pageInfo.pageNum}">
-                            <li><a href="newsbrand.html?page=${nav}&rows=${pageInfo.pageSize }"
+                            <li><a href="newsbrand.html?page=${nav}&rows=${pageInfo.pageSize }&type=${type}"
                                    class="active">${nav}</a></li>
                         </c:if>
                         <c:if test="${nav != pageInfo.pageNum}">
                             <li>
-                                <a href="newsbrand.html?page=${nav}&rows=${pageInfo.pageSize }">${nav}</a>
+                                <a href="newsbrand.html?page=${nav}&rows=${pageInfo.pageSize }&type=${type}">${nav}</a>
                             </li>
                         </c:if>
                     </c:forEach>
                     <li class="next"><a
-                            href="newsbrand.html?page=${pageInfo.nextPage}&rows=${pageInfo.pageSize }">下一页</a>
+                            href="newsbrand.html?page=${pageInfo.nextPage}&rows=${pageInfo.pageSize }&type=${type}">下一页</a>
                     </li>
                     <li>
-                        <a href="newsbrand.html?page=${pageInfo.pages }&rows=${pageInfo.pageSize }">末页</a>
+                        <a href="newsbrand.html?page=${pageInfo.pages }&rows=${pageInfo.pageSize }&type=${type}">末页</a>
                     </li>
                 </ul>
             </div>
@@ -149,7 +170,7 @@
     //单个删除
     function article_del(obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
-            $.post("${pageContext.request.contextPath}/news/deletenews.html", {id: id + ","}, function (data) {
+            $.post("${pageContext.request.contextPath}/admin/deletenews.html", {id: id + ","}, function (data) {
                 if (data.is) {
                     $(obj).parents("tr").remove();
                     layer.msg(data.msg, {icon: 1, time: 1000});
@@ -180,14 +201,14 @@
             });
             $.ajax({
                 type: "POST",
-                url: "${pageContext.request.contextPath}/news/deletenews.html",
+                url: "${pageContext.request.contextPath}/admin/deletenews.html",
                 data: {
                     "id": checkList.toString()
                 },
                 dataType: "json",
                 success: function (ajax) {
                     if (ajax.is) {
-                        window.location.href = "${pageContext.request.contextPath}/news/newsbrand.html?page=1&rows=10";
+                        window.location.href = "${pageContext.request.contextPath}/admin/newsbrand.html?page=1&rows=10";
                         layer.msg(data.msg, {icon: 1, time: 1000});
                         var counts = $("#count").html();
                         $("#count").html(counts - lengths);
@@ -201,7 +222,7 @@
     });
 
     function article_edit(id) {
-        window.location.href = "${pageContext.request.contextPath}/news/getnews/" + id;
+        window.location.href = "newsadd.html?id=" + id;
     }
 
     $('.table-sort').dataTable({
@@ -212,6 +233,9 @@
             {"orderable": false, "aTargets": [0, 6]}// 制定列不参与排序
         ]
     });
+
+
+
 </script>
 </body>
 </html>

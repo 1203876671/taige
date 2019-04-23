@@ -1,77 +1,46 @@
-
-
 /*******************************TAB切换***********************************/
-
-function tabSlider(obj,objs,objsn){
-	
-	//$(obj + ':first').addClass('cata_til_onck');
-	//$(objsn + ':first').css('display','block');
-	//autoroll();
-	hookThumb();
-	
-	var i=-1;//第i+1个tab开始
-		
-	function autoroll(){
-		nca = $(obj).length-1;
-		i++;
-		if(i > nca){
-		i = 0;
-		}
-		slide(i);
-	}
-	
-	function slide(i){
-		$(obj).eq(i).addClass(objs).siblings().removeClass(objs);
-		$(objsn).eq(i).css('display','block').siblings(objsn).css('display','none');
-	}
-	
-	function hookThumb(){    
-		$(obj).hover(
-		function(){
-				i = $(this).prevAll().length;
-				slide(i); 
-		},function(){
-			$(obj).eq(i).removeClass(objs);
-		}); 
-	}
-}
 
 
 function tabSliderclock(obj,objs,objsn){
-	$(function(){
-		$(obj + ':first').addClass('cata_til_onck');
-		$(objsn + ':first').css('display','block');
-		autoroll();
-		hookThumb();
-	})
-	 var i=-1;
-		
-	function autoroll(){
-		nca = $(obj).length-1;
-		i++;
-		if(i > nca){
-		i = 0;
-		}
-		slide(i);
-	}
-	
+	hookThumb();	
 	function slide(i){
 		$(obj).eq(i).addClass(objs).siblings().removeClass(objs);
 		$(objsn).eq(i).css('display','block').siblings(objsn).css('display','none');
-	}
-	
+		
+	}	
 	function hookThumb(){    
 		$(obj).click(
 		function(){
 				i = $(this).prevAll().length;
 				slide(i); 
 		}); 
+		$(".sort_tab a").click(function(){
+			$(".sort_list li").removeClass("licur");
+			$(".count_gs").hide();
+			$(".sort_list").removeClass("sort_listcur")
+		})
+
 	}
 }
+
+$(function(){
+	$(".return_btn").click(function(){
+		
+		$(".sort_tab a").each(function(){
+			var _index=$(this).index(".sort_tab a");
+				if($(".sort_tab a").eq(_index).hasClass("sort_tabcur")){
+				$(".sort_tab_con").eq(_index).show();
+			}
+		})
+		
+		$(".count_gs").hide();
+		
+	})	
+})
+
 //tab开始
 $(document).ready(function(){
-	tabSliderclock(".news_tab a","tabacur",".news_tabcon");
-	tabSlider("","","");
-	tabSliderclock(".app-list-ul li","app-tab-active",".app-list-content");
+	tabSliderclock(".problem_mktab a","cur",".problem_mkcon");	
 })
+
 

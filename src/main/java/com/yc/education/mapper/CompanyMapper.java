@@ -17,8 +17,13 @@ public interface CompanyMapper extends MyMapper<Company> {
     public Company getCompany(int type);
 
     /**
-     * 查看公司
+     * 查看显示的公司
      */
-    public Company company();
+    public List<Company> company();
+
+    /**
+     * 查看全部的公司
+     */
+    public List<Company> listcompany();
 
 }

@@ -43,22 +43,14 @@ public class NewsAdminController {
      * @return
      */
     @RequestMapping("newsbrand.html")
-    public ModelAndView newsbrand(@RequestParam(required = false, defaultValue = "1") int page,
+    public ModelAndView newsbrand(@RequestParam(required = false, defaultValue = "1") int type,
+                                  @RequestParam(required = false, defaultValue = "1") int page,
                                   @RequestParam(required = false, defaultValue = "10") int rows) {
         ModelAndView modelAndView = new ModelAndView();
-        List<News> listnewsOrderSortAndDate = newsService.listnewsOrderSortAndDate(null, page, rows);
+        List<News> listnewsOrderSortAndDate = newsService.listnewsOrderSortAndDate(type, page, rows);
+        modelAndView.addObject("type", type);
         modelAndView.addObject("pageInfo", new PageInfo<>(listnewsOrderSortAndDate));
         return modelAndView;
-    }
-
-    /**
-     * 添加页面跳转
-     *
-     * @return
-     */
-    @RequestMapping("newsadd.html")
-    public ModelAndView newadd() {
-        return new ModelAndView("admin/newsadd");
     }
 
     /**
@@ -67,7 +59,7 @@ public class NewsAdminController {
      * @param id
      * @return
      */
-    @RequestMapping("getnews")
+    @RequestMapping("newsadd.html")
     public ModelAndView getnews(int id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("news", newsService.getNewsById(id));
@@ -82,6 +74,7 @@ public class NewsAdminController {
         news.setDate(format);
         String fileNames = null;
         if (fimg.getOriginalFilename() != null && !"".equals(fimg.getOriginalFilename())) {
+            String contextPath = request.getSession().getServletContext().getContextPath();
             String upaloadUrl = request.getSession().getServletContext().getRealPath("/") + "ajaxupload";
             //上传文件名
             String filename = fimg.getOriginalFilename();
@@ -99,15 +92,17 @@ public class NewsAdminController {
             //将上传文件保存到一个目标文件中
             request.getSession().setAttribute("img", "1");
             fimg.transferTo(new File(upaloadUrl + File.separator + filename));
-            fileNames = "/ajaxupload/" + filename;
+            fileNames = contextPath + "/ajaxupload/" + filename;
             news.setImg(fileNames);
         }
         if (news.getId() != null && !"".equals(news.getId())) {
-            newsService.updateNewsById(news);
+            newsService.updateNotNull(news);
         } else {
-            newsService.insertNews(news);
+            newsService.save(news);
         }
-        return newsbrand(1, 10);
+        ModelAndView newsbrand = newsbrand(1, 1, 10);
+        newsbrand.setViewName("admin/newsbrand");
+        return newsbrand;
     }
 
     /**

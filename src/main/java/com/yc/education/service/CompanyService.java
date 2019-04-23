@@ -2,6 +2,8 @@ package com.yc.education.service;
 
 import com.yc.education.model.Company;
 
+import java.util.List;
+
 /**
  * @ClassName CompanyService
  * @Description TODO
@@ -22,5 +24,7 @@ public interface CompanyService extends IService<Company> {
     /**
      * 查看公司
      */
-    public Company company();
+    public List<Company> company();
+
+    public List<Company> company(int page, int rows);
 }

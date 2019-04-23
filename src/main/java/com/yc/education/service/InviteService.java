@@ -2,6 +2,8 @@ package com.yc.education.service;
 
 import com.yc.education.model.Invite;
 
+import java.util.List;
+
 /**
  * @ClassName InviteService
  * @Description TODO
@@ -16,5 +18,12 @@ public interface InviteService extends IService<Invite> {
      *
      * @return
      */
-    public Invite getInvite();
+    public List<Invite> getInvite();
+
+    /**
+     * 获取招聘信息分页
+     *
+     * @return
+     */
+    public List<Invite> getInvite(int page, int rows);
 }

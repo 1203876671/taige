@@ -27,7 +27,7 @@ public interface NewsMapper extends MyMapper<News> {
     public News getNewsById(Integer id);
 
     /**
-     * 根据name模糊查询
+     * 根据类型查询
      *
      * @param type
      * @return

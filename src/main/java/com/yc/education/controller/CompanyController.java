@@ -48,7 +48,7 @@ public class CompanyController {
     @RequestMapping("recruit")
     public ModelAndView Invite() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("invite", inviteService.getInvite());
+        modelAndView.addObject("invite", inviteService.getInvite().get(0));
         return modelAndView;
     }
 

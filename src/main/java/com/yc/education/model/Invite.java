@@ -20,6 +20,20 @@ public class Invite {
     private Integer state;
 
     /**
+     * 信息名称
+     */
+    private String name;
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * @return id
      */
     public Integer getId() {

@@ -1,0 +1,37 @@
+*{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.box{
+    width: 90%;
+    margin: 0 auto;
+}
+.box h2{
+    line-height: 60px;
+	font-size:25px;
+	font-weight: 600;
+	padding-top:50px;
+}
+.box h3{
+    line-height: 40px;
+	font-weight: 500;
+	padding:30px 0px 20px;
+	font-size:22px;
+}
+
+.box p{
+    line-height: 35px;
+    font-size: 18px;
+}
+.box li{
+    line-height: 50px;   
+	width:50%;
+	font-size: 18px;
+	box-sizing:border-box;
+}
+.box li a{
+    text-decoration: none;   
+    color:#08c;
+}

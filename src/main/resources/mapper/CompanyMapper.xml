@@ -23,4 +23,8 @@
         SELECT * FROM company WHERE  state = 1
     </select>
 
+  <select id="listcompany" resultMap="BaseResultMap">
+        SELECT * FROM company
+    </select>
+
 </mapper>

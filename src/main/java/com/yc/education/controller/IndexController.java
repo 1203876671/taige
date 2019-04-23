@@ -58,7 +58,7 @@ public class IndexController {
         modelAndView.addObject("listNews", newsService.listnewsOrderSortAndDate(1, 1, 10));
         modelAndView.addObject("listNews2", newsService.listnewsOrderSortAndDate(2, 1, 10));
         session.setAttribute("listApply", applyService.listAppply());
-        session.setAttribute("company", companyService.company());
+        session.setAttribute("company", companyService.company().get(0));
         return modelAndView;
     }
 

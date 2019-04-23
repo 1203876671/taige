@@ -1,10 +1,13 @@
 package com.yc.education.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yc.education.mapper.CompanyMapper;
 import com.yc.education.model.Company;
 import com.yc.education.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @ClassName CompanyServiceImpl
@@ -26,7 +29,13 @@ public class CompanyServiceImpl extends BaseService<Company> implements CompanyS
     }
 
     @Override
-    public Company company() {
+    public List<Company> company() {
         return companyMapper.company();
+    }
+
+    @Override
+    public List<Company> company(int page, int rows) {
+        PageHelper.startPage(page, rows);
+        return companyMapper.listcompany();
     }
 }

@@ -1,10 +1,13 @@
 package com.yc.education.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yc.education.mapper.InviteMapper;
 import com.yc.education.model.Invite;
 import com.yc.education.service.InviteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @ClassName InviteServiceImpl
@@ -19,8 +22,15 @@ public class InviteServiceImpl extends BaseService<Invite> implements InviteServ
     @Autowired
     InviteMapper inviteMapper;
 
+
     @Override
-    public Invite getInvite() {
+    public List<Invite> getInvite() {
         return inviteMapper.getInvite();
+    }
+
+    @Override
+    public List<Invite> getInvite(int page, int rows) {
+        PageHelper.startPage(page, rows);
+        return inviteMapper.listInvite();
     }
 }
