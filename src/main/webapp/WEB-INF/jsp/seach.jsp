@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html style="font-size:100px">
@@ -60,11 +61,11 @@
         <div class="top_right clearfix">
 				<span>
 					<i class="icon_tel"></i>
-					<b>021-50796110</b>
+					<b>${company.phone}</b>
 				</span>
             <span>
 					<i class="icon_fax"></i>
-					<b>stanley.luo@tech-polymer.cn</b>
+					<b>${company.emil}</b>
 				</span>
         </div>
     </div>
@@ -72,8 +73,8 @@
 
 <div class="header">
     <div class="mainbox clearfix header_nav">
-        <a class="logo" href="index.jsp">
-            <img src="images/logo.png">
+        <a class="logo" href="index.html">
+            <img src="${pageContext.request.contextPath}/static/images/logo.png">
         </a>
         <div class="munes">
             <span class="mune1"></span>
@@ -83,41 +84,38 @@
         <div class="nav">
             <ul class="navul clearfix dropdown">
                 <li class="navli">
-                    <a href="index.jsp">首页</a>
+                    <a href="index.html">首页</a>
                 </li>
                 <li class="navli">
                     <a class="level" href="company.html">关于泰格</a>
                     <div class="level_down">
-                        <a href="company.html">公司简介</a>
-                        <a href="company.html">公司愿景</a>
-                        <a href="company.html">安全环保</a>
-                        <a href="company.html">价值传递</a>
+                        <a href="company.html?type=1">公司简介</a>
+                        <a href="company.html?type=2">公司愿景</a>
+                        <a href="company.html?type=3">安全环保</a>
+                        <a href="company.html?type=4">价值传递</a>
                     </div>
                 </li>
-                <li class="navli cur-active">
+                <li class="navli">
                     <a class="level" href="goods.html">产品中心</a>
                     <div class="level_down">
-                        <a href="download.html">分散剂</a>
-                        <a href="download.html">流平剂</a>
-                        <a href="download.html">消泡剂</a>
-                        <a href="download.html">基材润湿剂</a>
-                        <a href="download.html">附着力促进剂</a>
-                        <a href="download.html">特用助剂</a>
-                        <a href="download.html">流变助剂</a>
+                        <c:forEach items="${listProduct}" var="listProduct">
+                            <a href="download.html">${listProduct.name}</a>
+                        </c:forEach>
                     </div>
                 </li>
                 <li class="navli">
                     <a class="level" href="news.html">新闻资讯</a>
                     <div class="level_down">
                         <a href="news.html">公司新闻</a>
-                        <a href="news.html">行业动态</a>
+                        <a href="news.html?type=2">行业动态</a>
                     </div>
                 </li>
-                <li class="navli">
-                    <a class="level" href="application-list-shui.html">应用推荐</a>
+                <li class="navli cur-active">
+                    <a class="level" href="application-list.html?applyid=1">应用推荐</a>
                     <div class="level_down">
-                        <a href="application-list-shui.html">水性体系</a>
-                        <a href="application-list-you.html">油性体系</a>
+                        <c:forEach items="${listApply}" var="listApply">
+                            <a href="application-list.html?applyid=${listApply.id}">${listApply.name}</a>
+                        </c:forEach>
                         <a href="ask.html">样品索取</a>
                         <a href="download-list.html">资料下载</a>
                     </div>
@@ -158,7 +156,8 @@
             });
     </script>
 </div>
-<div class="goods_banner" style="background: url(images/goods_banner.jpg) repeat-x center top;background-size:cover;">
+<div class="goods_banner"
+     style="background: url(${pageContext.request.contextPath}/static/images/goods_banner.jpg) repeat-x center top;background-size:cover;">
     <h2>产品中心</h2>
     <span></span>
     <p>NEWS EVERY DAY IS VERY EXCTING, SEE EVERYTHING</p>
@@ -166,7 +165,7 @@
 <div class="download">
     <div class="download-le">
         <div class="bread">
-            搜索结果：（10）条
+            搜索结果：${fn:length(product)}条
         </div>
         <!-- <div class="dl-le-title">
             <h2>分散剂</h2>
@@ -176,233 +175,46 @@
         <div class="dl-list-title">
             <ul class="clearfix">
                 <li>产品
-                    <img src="images/dl-list-icon.png" alt="">
+                    <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
                 </li>
                 <li>同类产品
-                    <img src="images/dl-list-icon.png" alt="">
+                    <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
                 </li>
                 <li>活性成分
-                    <img src="images/dl-list-icon.png" alt="">
+                    <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
                 </li>
                 <li>用途
-                    <img src="images/dl-list-icon.png" alt="">
+                    <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
                 </li>
                 <li>TDS下载
-                    <img src="images/dl-list-icon.png" alt="">
+                    <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
                 </li>
             </ul>
         </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
+        <c:forEach items="${product}" var="product">
+            <div class="dl-list">
+                <a class="dl-list-con" href="parameter.html">
+                    <ul class="clearfix">
+                        <li>${product.name}</li>
+                        <li>${product.likeproduct}</li>
+                        <li>${product.ingredients}</li>
+                        <li>${product.uses}</li>
                     </ul>
                 </a>
+                <div class="dl-pdf">
+                    <a href="#">
+                        <ul>
+                            <li>
+                                <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
+                            </li>
+                        </ul>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-        <div class="dl-list">
-            <a class="dl-list-con" href="parameter.html">
-                <ul class="clearfix">
-                    <li>Tech-210A</li>
-                    <li>Tech-6300</li>
-                    <li>有机改性聚硅氧烷(25%)</li>
-                    <li>无</li>
-                </ul>
-            </a>
-            <div class="dl-pdf">
-                <a href="#">
-                    <ul>
-                        <li>
-                            <img src="images/icon_pdf.png" alt="">
-                        </li>
-                    </ul>
-                </a>
-            </div>
-        </div>
+        </c:forEach>
     </div>
-    <br clear="all"/>
+</div>
+<br clear="all"/>
 </div>
 <div class="footer">
     <div class="mainbox clearfix">
@@ -474,8 +286,8 @@
         </div>
 
         <div class="footer_logo aos-animate" data-aos-duration="300" data-aos-delay="100" data-aos="fade-left">
-            <img src="images/footer-top-logo.png" style="width: 260px;">
-            <img src="images/footer_logo.png">
+            <img src="${pageContext.request.contextPath}/static/images/footer-top-logo.png" style="width: 260px;">
+            <img src="${pageContext.request.contextPath}/static/images/footer_logo.png">
         </div>
     </div>
 </div>

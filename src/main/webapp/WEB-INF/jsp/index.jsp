@@ -160,6 +160,8 @@
             e.preventDefault();
             iSwiper.swipeNext();
         });
+
+
     </script>
     <div class="search">
         <div class="mainbox clearfix">
@@ -172,8 +174,9 @@
                 <input type="button" class="search_btn2" value="提交"/>
             </div>
             <div class="search_form clearfix">
-                <input type="text" class="search_input" placeholder="产品快速搜索"/>
-                <a href="seach.html"><input type="button" class="search_btn" value="搜索"/></a>
+                <input type="text" class="search_input" placeholder="产品快速搜索" id="proname"/>
+                <a href="javascript:void(0);" onclick="searchs()"><input type="button" class="search_btn"
+                                                                        value="搜索"/></a>
             </div>
         </div>
     </div>
@@ -499,7 +502,21 @@
 <script src="${pageContext.request.contextPath}/static/js/header_footer.js" type="text/javascript"
         charset="utf-8"></script>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Yp9062LbFzGcPihwzzRzGqdB"></script>
+<script type="application/javascript">
+    function searchs() {
+        var proname = $("#proname").val();
+        if (proname != null && proname != '') {
+            window.location.href = "seach.html?proname=" + proname;
+            return true;
+        } else {
+            alert("请输入关键词")
+            return false;
+        }
+    }
+</script>
 <script type="text/javascript">
+
+
     (function () {
         AOS.init({});
     }());

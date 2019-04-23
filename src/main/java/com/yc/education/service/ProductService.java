@@ -21,4 +21,10 @@ public interface ProductService extends IService<Product> {
      */
     public List<Product> listProduct();
 
+
+    /**
+     * 根据产品名称模糊查询
+     */
+    public List<Product> likeProductName(String name);
+
 }

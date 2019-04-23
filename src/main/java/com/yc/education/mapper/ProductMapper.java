@@ -15,5 +15,10 @@ public interface ProductMapper extends MyMapper<Product> {
      */
     public List<Product> listProduct();
 
+    /**
+     * 根据产品名称模糊查询
+     */
+    public List<Product> likeProductName(String name);
+
 
 }

@@ -50,7 +50,7 @@ public class AdminController {
     }
 
     //登陆成功--跳转
-    @RequestMapping("admin/index.jsp")
+    @RequestMapping("admin/index.html")
     public ModelAndView index(HttpServletResponse response, HttpServletRequest request, HttpSession session) {
         ModelAndView result = new ModelAndView();
         //判断管理员时候登录 没有登录定向到登录页面

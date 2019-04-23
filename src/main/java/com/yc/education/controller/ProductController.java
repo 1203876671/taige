@@ -71,5 +71,14 @@ public class ProductController {
         return modelAndView;
     }
 
+    /**
+     * 产品名称模糊查询
+     */
+    @RequestMapping("seach.html")
+    public ModelAndView seach(String proname) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("product", productService.likeProductName(proname));
+        return modelAndView;
+    }
 
 }

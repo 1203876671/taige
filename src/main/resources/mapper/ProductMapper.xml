@@ -19,5 +19,8 @@
         SELECT * FROM product
     </select>
 
+    <select id="likeProductName" resultMap="BaseResultMap">
+        SELECT * FROM product WHERE name like CONCAT(CONCAT('%',#{name}),'%')
+    </select>
 
 </mapper>

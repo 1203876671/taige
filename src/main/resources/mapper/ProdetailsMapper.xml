@@ -20,4 +20,6 @@
         SELECT * FROM prodetails WHERE proid = #{0}
     </select>
 
+
+
 </mapper>

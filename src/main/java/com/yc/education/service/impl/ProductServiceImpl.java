@@ -26,4 +26,9 @@ public class ProductServiceImpl extends BaseService<Product> implements ProductS
     public List<Product> listProduct() {
         return productMapper.listProduct();
     }
+
+    @Override
+    public List<Product> likeProductName(String name) {
+        return productMapper.likeProductName(name);
+    }
 }

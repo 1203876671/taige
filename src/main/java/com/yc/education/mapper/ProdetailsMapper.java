@@ -18,4 +18,5 @@ public interface ProdetailsMapper extends MyMapper<Prodetails> {
     public List<Prodetails> listProDetails(int proid);
 
 
+
 }
