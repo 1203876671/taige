@@ -18,5 +18,17 @@ public interface ProdetailsMapper extends MyMapper<Prodetails> {
     public List<Prodetails> listProDetails(int proid);
 
 
+    /**
+     * 取所有对象
+     *
+     * @return
+     */
+    public List<Prodetails> proDetails();
 
+    /**
+     * 根据proid删除
+     *
+     * @return
+     */
+    public void delProDetails(int proid);
 }

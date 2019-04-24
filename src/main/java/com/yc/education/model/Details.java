@@ -32,12 +32,25 @@ public class Details {
     /**
      * 产品用途
      */
-    private String use;
+    private String uses;
 
     /**
      * 应用名称
      */
     private String applyname;
+
+    /**
+     * 文件
+     */
+    private String file;
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
 
     /**
      * @return id
@@ -131,7 +144,7 @@ public class Details {
      * @return use - 产品用途
      */
     public String getUse() {
-        return use;
+        return uses;
     }
 
     /**
@@ -140,7 +153,7 @@ public class Details {
      * @param use 产品用途
      */
     public void setUse(String use) {
-        this.use = use;
+        this.uses = use;
     }
 
     /**

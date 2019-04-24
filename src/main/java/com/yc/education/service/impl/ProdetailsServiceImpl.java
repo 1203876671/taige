@@ -1,5 +1,6 @@
 package com.yc.education.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yc.education.mapper.ProdetailsMapper;
 import com.yc.education.mapper.ProductMapper;
 import com.yc.education.model.Prodetails;
@@ -27,5 +28,21 @@ public class ProdetailsServiceImpl extends BaseService<Prodetails> implements Pr
     @Override
     public List<Prodetails> listProDetails(int proid) {
         return prodetailsService.listProDetails(proid);
+    }
+
+    @Override
+    public List<Prodetails> listProDetails(int page, int rows, int proid) {
+        PageHelper.startPage(page, rows);
+        return prodetailsService.listProDetails(proid);
+    }
+
+    @Override
+    public List<Prodetails> proDetails() {
+        return prodetailsService.proDetails();
+    }
+
+    @Override
+    public void delProDetails(int proid) {
+        prodetailsService.delProDetails(proid);
     }
 }

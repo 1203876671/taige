@@ -184,13 +184,18 @@
                     </ul>
                 </a>
                 <div class="dl-pdf">
-                    <a href="#">
-                        <ul>
-                            <li>
-                                <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
-                            </li>
-                        </ul>
-                    </a>
+                    <c:if test="${listProDetails.file != null && listProDetails.file != ''}">
+                    <a href="#" download="${listProDetails.file}" class="file">
+                        </c:if>
+                        <c:if test="${listProDetails.file == null || listProDetails.file == ''}">
+                        <a href="#" class="file">
+                            </c:if>
+                            <ul>
+                                <li>
+                                    <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
+                                </li>
+                            </ul>
+                        </a>
                 </div>
             </div>
         </c:forEach>
@@ -317,6 +322,17 @@
     </ul>
 </div>
 <script src="js/header_footer.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(".file").click(function () {
+        var dow = $(this).attr("download");
+        if (dow != null && dow != "") {
+            return true;
+        }
+        alert("该产品暂时没有文件");
+        return false;
+    })
+
+</script>
 </body>
 
 </html>

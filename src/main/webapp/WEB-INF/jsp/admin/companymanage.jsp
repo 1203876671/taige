@@ -42,10 +42,10 @@
 
 <div class="page-container">
     <div class="cl pd-5 bg-1 bk-gray mt-20">
-        <%--<span class="l">--%>
-        <%--<a class="btn btn-primary radius" href="#" onclick="exportExcel()"><i--%>
-        <%--class="Hui-iconfont"></i> 导出文档</a>--%>
-        <%--</span>--%>
+        <a class="btn btn-primary radius" href="upcompany.html"><i
+                class="Hui-iconfont">&#xe600;</i>
+            添加公司
+        </a>
         <span class="r">共有数据：<strong>${pageInfo.total }</strong> 条</span>
     </div>
     <div class="mt-20">
@@ -59,7 +59,7 @@
                 <th width="150">电话</th>
                 <th width="150">邮箱</th>
                 <th width="200">显示状态</th>
-                <th width="200">查看</th>
+                <th width="200">操作</th>
             </tr>
             </thead>
             <tbody>
@@ -121,6 +121,22 @@
 </div>
 </div>
 <script type="text/javascript">
+
+    //单个删除
+    function article_del(obj, id) {
+        layer.confirm('确认要删除吗？', function (index) {
+            $.post("${pageContext.request.contextPath}/admin/deletecompany.html", {id: id + ","}, function (data) {
+                if (data.is) {
+                    $(obj).parents("tr").remove();
+                    layer.msg(data.msg, {icon: 1, time: 1000});
+                    var counts = $("#count").html();
+                    $("#count").html(counts - 1);
+                } else {
+                    layer.msg(data.msg, {icon: 2, time: 1000});
+                }
+            }, "json");
+        });
+    }
 
     function article_edit(id) {
         window.location.href = "upcompany.html?id=" + id;

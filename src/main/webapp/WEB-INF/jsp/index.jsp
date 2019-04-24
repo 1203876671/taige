@@ -63,10 +63,10 @@
                 <li class="navli">
                     <a class="level" href="company.html">关于泰格</a>
                     <div class="level_down">
-                        <a href="company.html?type=1">公司简介</a>
-                        <a href="company.html?type=2">公司愿景</a>
-                        <a href="company.html?type=3">安全环保</a>
-                        <a href="company.html?type=4">价值传递</a>
+                        <a href="company.html">公司简介</a>
+                        <a href="company.html">公司愿景</a>
+                        <a href="company.html">安全环保</a>
+                        <a href="company.html">价值传递</a>
                     </div>
                 </li>
                 <li class="navli">
@@ -176,7 +176,7 @@
             <div class="search_form clearfix">
                 <input type="text" class="search_input" placeholder="产品快速搜索" id="proname"/>
                 <a href="javascript:void(0);" onclick="searchs()"><input type="button" class="search_btn"
-                                                                        value="搜索"/></a>
+                                                                         value="搜索"/></a>
             </div>
         </div>
     </div>
@@ -210,19 +210,6 @@
                             </a>
                         </li>
                     </c:forEach>
-                    <%--<li class="aos-animate" data-aos-duration="300" data-aos-delay="100" data-aos="fade-right">--%>
-                    <%--<a href="download-list.html" class="show_list">--%>
-                    <%--<div class="show_img">--%>
-                    <%--<img src="images/69.jpg">--%>
-                    <%--</div>--%>
-                    <%--<div class="show_con">--%>
-                    <%--<p class="show_tit">有机硅流平剂</p>--%>
-                    <%--<p class="show_des">有机硅流平剂是一种常用的涂料助剂，它能促使涂料在干燥成膜过程中形成一个平整、光滑、均匀的涂膜</p>--%>
-                    <%--<i class="icon_promore"></i>--%>
-                    <%--</div>--%>
-                    <%--<span class="borderwl"></span>--%>
-                    <%--</a>--%>
-                    <%--</li>--%>
                 </ul>
             </div>
             <div class="control">
@@ -252,11 +239,8 @@
                 direction: 'left'
             });
         }
-
     </script>
-
 </div>
-
 <div class="recommend">
     <div class="mainbox">
         <div class="index_nav clearfix aos-animate" data-aos-duration="300" data-aos-delay="100" data-aos="fade-up">
@@ -312,7 +296,6 @@
 
 </div>
 
-
 <div class="mainbox news clearfix">
     <div class="news_side aos-animate" data-aos-duration="300" data-aos-delay="100" data-aos="fade-up">
         <div class="index_tit">
@@ -320,15 +303,15 @@
             <p>科学演绎聚合物</p>
         </div>
         <div class="news_tab">
-            <a class="tabacur">公司新闻</a>
-            <a class="">行业动态</a>
+            <a class="tabacur ne ab">公司新闻</a>
+            <a class="ne">行业动态</a>
         </div>
         <a class="newsmore" href="news.html">
             <i class="icon_news"></i>
         </a>
     </div>
 
-    <div class="news_tabcon" style="display:block;">
+    <div class="news_tabcon" id="news1" style="display:block;">
         <c:forEach var="listNews1" items="${listNews}" begin="0" end="1">
             <c:if test="${listNews1.sort == 0}">
                 <a href="news_content.html?id=${listNews1.id}" class="news_left aos-animate" data-aos-duration="300"
@@ -364,10 +347,10 @@
         </c:forEach>
     </div>
 
-    <div class="news_tabcon">
+    <div class="news_tabcon aaa" style="display: none;">
         <c:forEach var="listNews1" items="${listNews2}" begin="0" end="1">
             <c:if test="${listNews1.sort == 0}">
-                <a href="#" class="news_left aos-animate" data-aos-duration="300" data-aos-delay="200"
+                <a href="news_content.html?id=${listNews1.id}" class="news_left aos-animate" data-aos-duration="300" data-aos-delay="200"
                    data-aos="fade-right">
         <span class="newspic">
           <img src="${listNews1.img}">
@@ -383,7 +366,7 @@
             <div class="news_right">
                 <ul>
                     <li class="aos-animate" data-aos-duration="300" data-aos-delay="300" data-aos="fade-up">
-                        <a class="news_left news_r" href="#">
+                        <a class="news_left news_r" href="news_content.html?id=${listNews.id}">
               <span class="newspic">
                 <img src="${listNews.img}">
               </span>
@@ -411,19 +394,18 @@
                 <dl>
                     <dt>关于泰格</dt>
                     <dd>
-                        <a href="company.html?type=1">公司简介</a>
+                        <a href="company.html">公司简介</a>
                     </dd>
                     <dd>
-                        <a href="company.html?type=2">公司愿景</a>
+                        <a href="company.html">公司愿景</a>
                     </dd>
                     <dd>
-                        <a href="company.html?type=3">安全环保</a>
+                        <a href="company.html">安全环保</a>
                     </dd>
                     <dd>
-                        <a href="company.html?type=3">价值传递</a>
+                        <a href="company.html">价值传递</a>
                     </dd>
                 </dl>
-
                 <dl>
                     <dt>新闻资讯</dt>
                     <dd>
@@ -433,7 +415,6 @@
                         <a href="news.html?type=2">行业动态</a>
                     </dd>
                 </dl>
-
                 <dl>
                     <dt>产品中心</dt>
                     <c:forEach items="${listProduct}" var="listProduct">
@@ -474,8 +455,8 @@
         </div>
 
         <div class="footer_logo aos-animate" data-aos-duration="300" data-aos-delay="100" data-aos="fade-left">
-            <img src="images/footer-top-logo.png" style="width: 260px;">
-            <img src="images/footer_logo.png">
+            <img src="${pageContext.request.contextPath}/static/images/footer-top-logo.png" style="width: 260px;">
+            <img src="${pageContext.request.contextPath}/static/images/footer_logo.png">
         </div>
     </div>
 </div>
@@ -502,7 +483,24 @@
 <script src="${pageContext.request.contextPath}/static/js/header_footer.js" type="text/javascript"
         charset="utf-8"></script>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Yp9062LbFzGcPihwzzRzGqdB"></script>
-<script type="application/javascript">
+<script type="text/javascript">
+
+    $(".ne").click(function () {
+        var text = $(this).html();
+        if (text == '公司新闻') {
+            $(".ne").siblings().removeClass("tabacur ne");
+            $(this).toggleClass("tabacur ne");
+            $(".aaa").css('display', 'none');
+            $("#news1").css('display', 'block');
+        }
+        if (text == '行业动态') {
+            $(".ne").siblings().removeClass("tabacur");
+            $(this).toggleClass("tabacur");
+            $("#news1").css('display', 'none');
+            $(".aaa").css('display', 'block');
+        }
+    })
+
     function searchs() {
         var proname = $("#proname").val();
         if (proname != null && proname != '') {
@@ -513,9 +511,6 @@
             return false;
         }
     }
-</script>
-<script type="text/javascript">
-
 
     (function () {
         AOS.init({});

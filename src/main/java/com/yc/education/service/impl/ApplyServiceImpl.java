@@ -1,5 +1,6 @@
 package com.yc.education.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yc.education.mapper.ApplyMapper;
 import com.yc.education.model.Apply;
 import com.yc.education.service.ApplyService;
@@ -23,6 +24,12 @@ public class ApplyServiceImpl extends BaseService<Apply> implements ApplyService
 
     @Override
     public List<Apply> listAppply() {
+        return applyMapper.listAppply();
+    }
+
+    @Override
+    public List<Apply> listAppply(int page, int rows) {
+        PageHelper.startPage(page, rows);
         return applyMapper.listAppply();
     }
 }

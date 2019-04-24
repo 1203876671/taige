@@ -27,6 +27,25 @@ public interface NewsMapper extends MyMapper<News> {
     public News getNewsById(Integer id);
 
     /**
+     * 根据ID查看相邻新闻对象
+     *
+     * @param id
+     * @return
+     */
+    @Select("SELECT id,title,author,content,outline,img,date,sort,type FROM news order by id>=#{id},id desc limit 1")
+    public News getNewsById1(Integer id);
+
+    /**
+     * 根据ID查看相邻新闻对象
+     *
+     * @param id
+     * @return
+     */
+    @Select("SELECT id,title,author,content,outline,img,date,sort,type FROM news order by id<=#{id},id asc limit 1")
+    public News getNewsById2(Integer id);
+
+
+    /**
      * 根据类型查询
      *
      * @param type

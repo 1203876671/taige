@@ -7,10 +7,13 @@ import com.yc.education.model.Invite;
 import com.yc.education.model.News;
 import com.yc.education.service.CompanyService;
 import com.yc.education.service.InviteService;
+import com.yc.education.util.AjaxMessage;
+import com.yc.education.util.ViewUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -61,7 +64,7 @@ public class CompantAdminController {
      * @return
      */
     @RequestMapping("upcompany.html")
-    public ModelAndView upcompany(int id) {
+    public ModelAndView upcompany(@RequestParam(required = false, defaultValue = "0") int id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("company", companyService.selectByKey(id));
         return modelAndView;
@@ -82,7 +85,7 @@ public class CompantAdminController {
      * 招聘信息查看
      */
     @RequestMapping("upinvite.html")
-    public ModelAndView upinvite(int id) {
+    public ModelAndView upinvite(@RequestParam(required = false, defaultValue = "0") int id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("invite", inviteService.selectByKey(id));
         return modelAndView;
@@ -129,9 +132,45 @@ public class CompantAdminController {
         } else {
             inviteService.save(invite);
         }
-        ModelAndView modelAndView = companyManage(1, 10);
+        ModelAndView modelAndView = invitemanage(1, 10);
         modelAndView.setViewName("admin/invitemanage");
         return modelAndView;
+    }
+
+    /**
+     * 删除招聘信息
+     *
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("deleteinvite.html")
+    public AjaxMessage<Object> deleteinvite(String id) {
+        String[] idlist = id.split(",");
+        int num = idlist.length;
+        int rows = 0;
+        for (String string : idlist) {
+            rows += inviteService.delete(Integer.parseInt(string));
+        }
+        return ViewUtil.returnajax(rows, num);
+    }
+
+    /**
+     * 删除公司
+     *
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("deletecompany.html")
+    public AjaxMessage<Object> deletecompany(String id) {
+        String[] idlist = id.split(",");
+        int num = idlist.length;
+        int rows = 0;
+        for (String string : idlist) {
+            rows += companyService.delete(Integer.parseInt(string));
+        }
+        return ViewUtil.returnajax(rows, num);
     }
 
 }

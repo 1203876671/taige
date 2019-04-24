@@ -14,12 +14,19 @@
         <result column="solvent" jdbcType="VARCHAR" property="solvent"/>
         <result column="system" jdbcType="VARCHAR" property="system"/>
         <result column="appearance" jdbcType="VARCHAR" property="appearance"/>
+        <result column="file" jdbcType="VARCHAR" property="file"/>
     </resultMap>
 
     <select id="listProDetails" resultMap="BaseResultMap">
         SELECT * FROM prodetails WHERE proid = #{0}
     </select>
 
+    <delete id="delProDetails">
+        DELETE FROM prodetails WHERE  proid = #{0}
+    </delete>
 
+    <select id="proDetails" resultMap="BaseResultMap">
+         SELECT * FROM prodetails
+    </select>
 
 </mapper>

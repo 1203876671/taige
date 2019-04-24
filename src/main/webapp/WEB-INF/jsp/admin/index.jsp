@@ -77,7 +77,24 @@
 <aside class="Hui-aside">
     <input runat="server" id="divScrollValue" type="hidden" value=""/>
     <div class="menu_dropdown bk_2">
-
+        <dl id="menu-article">
+            <%--<a _href="applymanage.html" data-title="公司管理" href="javascript:void(0)">售后申请管理</a>--%>
+            <a style="text-decoration: none;" _href="applymanage.html" data-title="应用分类管理"
+               href="javascript:void(0)">
+                <dt>
+                    <i class="Hui-iconfont">&#xe70f;</i>应用分类管理
+                </dt>
+            </a>
+        </dl>
+        <dl id="menu-article">
+            <%--<a _href="applymanage.html" data-title="公司管理" href="javascript:void(0)">售后申请管理</a>--%>
+            <a style="text-decoration: none;" _href="productmanage.html" data-title="产品分类管理"
+               href="javascript:void(0)">
+                <dt>
+                    <i class="Hui-iconfont">&#xe70f;</i>产品分类管理
+                </dt>
+            </a>
+        </dl>
         <dl id="menu-article">
             <dt>
                 <i class="Hui-iconfont">&#xe687;</i>公司管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
@@ -91,7 +108,6 @@
                 </ul>
             </dd>
         </dl>
-
         <dl id="menu-article">
             <dt>
                 <i class="Hui-iconfont">&#xe687;</i>新闻咨询<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>

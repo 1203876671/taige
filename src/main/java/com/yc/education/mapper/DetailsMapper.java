@@ -15,4 +15,11 @@ public interface DetailsMapper extends MyMapper<Details> {
      */
     public List<Details> listDetails(int applyid);
 
+    /**
+     * 根据applyid删除
+     *
+     * @return
+     */
+    public void delDetails(int applyid);
+
 }

@@ -5,14 +5,17 @@
         <!--
           WARNING - @mbggenerated
         -->
-        <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="context" property="context" jdbcType="VARCHAR"/>
-        <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="emil" property="emil" jdbcType="VARCHAR"/>
-        <result column="address" property="address" jdbcType="VARCHAR"/>
-        <result column="type" property="type" jdbcType="VARCHAR"/>
-        <result column="state" property="state" jdbcType="INTEGER"/>
-        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="context" jdbcType="VARCHAR" property="context"/>
+        <result column="delivery" jdbcType="VARCHAR" property="delivery"/>
+        <result column="security" jdbcType="VARCHAR" property="security"/>
+        <result column="vision" jdbcType="VARCHAR" property="vision"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="emil" jdbcType="VARCHAR" property="emil"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
     </resultMap>
 
     <select id="getCompany" resultMap="BaseResultMap">
@@ -23,7 +26,7 @@
         SELECT * FROM company WHERE  state = 1
     </select>
 
-  <select id="listcompany" resultMap="BaseResultMap">
+    <select id="listcompany" resultMap="BaseResultMap">
         SELECT * FROM company
     </select>
 

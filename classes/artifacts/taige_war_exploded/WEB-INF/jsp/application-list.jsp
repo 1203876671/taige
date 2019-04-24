@@ -206,20 +206,25 @@
                         </ul>
                     </div>
                     <div class="dl-pdf">
-                        <a href="#">
-                            <ul>
-                                <li>
-                                    <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
-                                </li>
-                            </ul>
-                        </a>
+                        <c:if test="${details.file != null && details.file != ''}">
+                        <a href="#" class="file" download="${details.file}">
+                            </c:if>
+                            <c:if test="${details.file == null || details.file == ''}">
+                            <a href="#" class="file">
+                                </c:if>
+                                <ul>
+                                    <li>
+                                        <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
+                                    </li>
+                                </ul>
+                            </a>
                     </div>
                 </div>
             </c:forEach>
         </div>
         <!-- app-list-content -->
         <!-- app-list-content -->
-        <div class="app-list-content" style="display:block">
+        <div class="app-list-content" style="display:display">
             <div class="dl-list-title">
                 <ul class="clearfix">
                     <li>产品
@@ -250,20 +255,25 @@
                         </ul>
                     </div>
                     <div class="dl-pdf">
-                        <a href="#">
-                            <ul>
-                                <li>
-                                    <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
-                                </li>
-                            </ul>
-                        </a>
+                        <c:if test="${details.file != null && details.file != ''}">
+                        <a href="#" download="${details.file}" class="file">
+                            </c:if>
+                            <c:if test="${details.file == null || details.file == ''}">
+                            <a href="#" class="file">
+                                </c:if>
+                                <ul>
+                                    <li>
+                                        <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
+                                    </li>
+                                </ul>
+                            </a>
                     </div>
                 </div>
             </c:forEach>
         </div>
         <!-- app-list-content -->
         <!-- app-list-content -->
-        <div class="app-list-content" style="display:block">
+        <div class="app-list-content" style="display:display">
             <div class="dl-list-title">
                 <ul class="clearfix">
                     <li>产品
@@ -294,58 +304,18 @@
                         </ul>
                     </div>
                     <div class="dl-pdf">
-                        <a href="#">
-                            <ul>
-                                <li>
-                                    <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
-                                </li>
-                            </ul>
-                        </a>
-                    </div>
-                </div>
-            </c:forEach>
-
-        </div>
-        <!-- app-list-content -->
-        <!-- app-list-content -->
-        <div class="app-list-content" style="display:block">
-            <div class="dl-list-title">
-                <ul class="clearfix">
-                    <li>产品
-                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
-                    </li>
-                    <li>同类产品
-                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
-                    </li>
-                    <li>活性成分
-                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
-                    </li>
-                    <li>用途
-                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
-                    </li>
-                    <li>TDS下载
-                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
-                    </li>
-                </ul>
-            </div>
-            <c:forEach items="${details}" var="details">
-                <div class="dl-list">
-                    <div class="dl-list-con">
-                        <ul class="clearfix">
-                            <li>${details.name}</li>
-                            <li>${details.likeproduct}</li>
-                            <li>${details.ingredients}</li>
-                            <li>${details.use}</li>
-                        </ul>
-                    </div>
-                    <div class="dl-pdf">
-                        <a href="#">
-                            <ul>
-                                <li>
-                                    <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
-                                </li>
-                            </ul>
-                        </a>
+                        <c:if test="${details.file != null && details.file != ''}">
+                        <a href="#" download="${details.file}" class="file">
+                            </c:if>
+                            <c:if test="${details.file == null || details.file == ''}">
+                            <a href="#" class="file">
+                                </c:if>
+                                <ul>
+                                    <li>
+                                        <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
+                                    </li>
+                                </ul>
+                            </a>
                     </div>
                 </div>
             </c:forEach>
@@ -353,7 +323,7 @@
         </div>
         <!-- app-list-content -->
         <!-- app-list-content -->
-        <div class="app-list-content" style="display:block">
+        <div class="app-list-content" style="display:display">
             <div class="dl-list-title">
                 <ul class="clearfix">
                     <li>产品
@@ -384,57 +354,18 @@
                         </ul>
                     </div>
                     <div class="dl-pdf">
-                        <a href="#">
-                            <ul>
-                                <li>
-                                    <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
-                                </li>
-                            </ul>
-                        </a>
-                    </div>
-                </div>
-            </c:forEach>
-        </div>
-        <!-- app-list-content -->
-        <!-- app-list-content -->
-        <div class="app-list-content" style="display:block">
-            <div class="dl-list-title">
-                <ul class="clearfix">
-                    <li>产品
-                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
-                    </li>
-                    <li>同类产品
-                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
-                    </li>
-                    <li>活性成分
-                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
-                    </li>
-                    <li>用途
-                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
-                    </li>
-                    <li>TDS下载
-                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
-                    </li>
-                </ul>
-            </div>
-            <c:forEach items="${details}" var="details">
-                <div class="dl-list">
-                    <div class="dl-list-con">
-                        <ul class="clearfix">
-                            <li>${details.name}</li>
-                            <li>${details.likeproduct}</li>
-                            <li>${details.ingredients}</li>
-                            <li>${details.use}</li>
-                        </ul>
-                    </div>
-                    <div class="dl-pdf">
-                        <a href="#">
-                            <ul>
-                                <li>
-                                    <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
-                                </li>
-                            </ul>
-                        </a>
+                        <c:if test="${details.file != null && details.file != ''}">
+                        <a href="#" download="${details.file}" class="file">
+                            </c:if>
+                            <c:if test="${details.file == null || details.file == ''}">
+                            <a href="#" class="file">
+                                </c:if>
+                                <ul>
+                                    <li>
+                                        <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
+                                    </li>
+                                </ul>
+                            </a>
                     </div>
                 </div>
             </c:forEach>
@@ -442,7 +373,7 @@
         </div>
         <!-- app-list-content -->
         <!-- app-list-content -->
-        <div class="app-list-content" style="display:block">
+        <div class="app-list-content" style="display:display">
             <div class="dl-list-title">
                 <ul class="clearfix">
                     <li>产品
@@ -473,13 +404,117 @@
                         </ul>
                     </div>
                     <div class="dl-pdf">
-                        <a href="#">
-                            <ul>
-                                <li>
-                                    <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
-                                </li>
-                            </ul>
-                        </a>
+                        <c:if test="${details.file != null && details.file != ''}">
+                        <a href="#" download="${details.file}" class="file">
+                            </c:if>
+                            <c:if test="${details.file == null || details.file == ''}">
+                            <a href="#" class="file">
+                                </c:if>
+                                <ul>
+                                    <li>
+                                        <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
+                                    </li>
+                                </ul>
+                            </a>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+        <!-- app-list-content -->
+        <!-- app-list-content -->
+        <div class="app-list-content" style="display:display">
+            <div class="dl-list-title">
+                <ul class="clearfix">
+                    <li>产品
+                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
+                    </li>
+                    <li>同类产品
+                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
+                    </li>
+                    <li>活性成分
+                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
+                    </li>
+                    <li>用途
+                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
+                    </li>
+                    <li>TDS下载
+                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
+                    </li>
+                </ul>
+            </div>
+            <c:forEach items="${details}" var="details">
+                <div class="dl-list">
+                    <div class="dl-list-con">
+                        <ul class="clearfix">
+                            <li>${details.name}</li>
+                            <li>${details.likeproduct}</li>
+                            <li>${details.ingredients}</li>
+                            <li>${details.use}</li>
+                        </ul>
+                    </div>
+                    <div class="dl-pdf">
+                        <c:if test="${details.file != null && details.file != ''}">
+                        <a href="#" download="${details.file}" class="file">
+                            </c:if>
+                            <c:if test="${details.file == null || details.file == ''}">
+                            <a href="#" class="file">
+                                </c:if>
+                                <ul>
+                                    <li>
+                                        <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
+                                    </li>
+                                </ul>
+                            </a>
+                    </div>
+                </div>
+            </c:forEach>
+
+        </div>
+        <!-- app-list-content -->
+        <!-- app-list-content -->
+        <div class="app-list-content" style="display:display">
+            <div class="dl-list-title">
+                <ul class="clearfix">
+                    <li>产品
+                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
+                    </li>
+                    <li>同类产品
+                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
+                    </li>
+                    <li>活性成分
+                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
+                    </li>
+                    <li>用途
+                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
+                    </li>
+                    <li>TDS下载
+                        <img src="${pageContext.request.contextPath}/static/images/dl-list-icon.png" alt="">
+                    </li>
+                </ul>
+            </div>
+            <c:forEach items="${details}" var="details">
+                <div class="dl-list">
+                    <div class="dl-list-con">
+                        <ul class="clearfix">
+                            <li>${details.name}</li>
+                            <li>${details.likeproduct}</li>
+                            <li>${details.ingredients}</li>
+                            <li>${details.use}</li>
+                        </ul>
+                    </div>
+                    <div class="dl-pdf">
+                        <c:if test="${details.file != null && details.file != ''}">
+                        <a href="#" class="file" download="${details.file}">
+                            </c:if>
+                            <c:if test="${details.file == null || details.file == ''}">
+                            <a href="#" class="file">
+                                </c:if>
+                                <ul>
+                                    <li>
+                                        <img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
+                                    </li>
+                                </ul>
+                            </a>
                     </div>
                 </div>
             </c:forEach>
@@ -610,12 +645,22 @@
 <script src="${pageContext.request.contextPath}/static/js/header_footer.js" type="text/javascript"
         charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/static/js/js.js"></script>
+
 <script>
+
+    $(".file").click(function () {
+        var dow = $(this).attr("download");
+        if (dow != null && dow != "") {
+            return true;
+        }
+        alert("该产品暂时没有文件");
+        return false;
+    })
+
     $('.app-list-select').change(function () {
         var index = $('option:selected', '.app-list-select').index();
         $('.app-list-content').css('display', 'none').eq(index).css('display', 'block');
     })
-
 </script>
 </body>
 

@@ -57,7 +57,7 @@ public class ProductController {
     @RequestMapping("download-list")
     public ModelAndView downloadList() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("listProduct", productService.listProduct());
+        modelAndView.addObject("listProduct", prodetailsService.proDetails());
         return modelAndView;
     }
 

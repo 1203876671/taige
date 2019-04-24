@@ -176,17 +176,17 @@
 
             <div class="page">
                 <div class="page-list">
-                    <a class="pre" href="news.html?page=${pageInfo.prePage}&rows=${pageInfo.pageSize }">上一页</a>
+                    <a class="pre" href="news.html?page=${pageInfo.prePage}&rows=${pageInfo.pageSize }&type=${type}">上一页</a>
                     <c:forEach items="${pageInfo.navigatepageNums}" var="nav">
                         <c:if test="${nav == pageInfo.pageNum}">
-                            <a href="news.html?page=${nav}&rows=${pageInfo.pageSize }"
+                            <a href="news.html?page=${nav}&rows=${pageInfo.pageSize }&type=${type}"
                                class="page-active">${nav}</a>
                         </c:if>
                         <c:if test="${nav != pageInfo.pageNum}">
-                            <a href="news.html?page=${nav}&rows=${pageInfo.pageSize }">${nav}</a>
+                            <a href="news.html?page=${nav}&rows=${pageInfo.pageSize }&type=${type}">${nav}</a>
                         </c:if>
                     </c:forEach>
-                    <a class="next" href="news.html?page=${pageInfo.nextPage}&rows=${pageInfo.pageSize }">下一页</a>
+                    <a class="next" href="news.html?page=${pageInfo.nextPage}&rows=${pageInfo.pageSize }&type=${type}">下一页</a>
                 </div>
             </div>
         </div>

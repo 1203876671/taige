@@ -49,4 +49,8 @@ public interface NewsService extends IService<News> {
      */
     public List<News> listNews(String page, String rows);
 
+
+    public News getNewsById1(Integer id);
+
+    public News getNewsById2(Integer id);
 }

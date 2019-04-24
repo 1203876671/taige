@@ -131,6 +131,30 @@
                 </script>
             </div>
         </div>
+         <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-1">公司愿景：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <script id="introduction1" type="text/plain" style="width:100%;height:400px;">
+            ${company.context}
+                </script>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-1">安全环保：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <script id="introduction2" type="text/plain" style="width:100%;height:400px;">
+                    ${company.context}
+                </script>
+             </div>
+         </div>
+        <div class="row cl">
+                 <label class="form-label col-xs-4 col-sm-1">价值传递：</label>
+          <div class="formControls col-xs-8 col-sm-9">
+            <script id="introduction3" type="text/plain" style="width:100%;height:400px;">
+             ${company.context}
+                </script>
+            </div>
+        </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
                 <button class="btn btn-primary radius" onclick="checkform();" type="submit"><i class="Hui-iconfont">&#xe632;</i>
@@ -153,6 +177,69 @@
 
     $(function () {
         var ue = UE.getEditor('introduction', {
+            //关闭字数统计
+            wordCount: false,
+            toolbars: [['fullscreen', 'source', '|', 'undo', 'redo', '|',
+                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+                'directionalityltr', 'directionalityrtl', 'indent', '|',
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+                'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+                'insertimage', 'emotion', 'insertvideo', 'attachment', 'map', 'template', 'background', '|',
+                'horizontal', 'date', 'time', 'spechars', 'wordimage', '|',
+                'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
+                'print', 'preview', 'searchreplace', 'help'
+            ]],
+            //关闭elementPath
+            elementPathEnabled: false,
+        });
+    })
+
+    $(function () {
+        var ue = UE.getEditor('introduction1', {
+            //关闭字数统计
+            wordCount: false,
+            toolbars: [['fullscreen', 'source', '|', 'undo', 'redo', '|',
+                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+                'directionalityltr', 'directionalityrtl', 'indent', '|',
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+                'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+                'insertimage', 'emotion', 'insertvideo', 'attachment', 'map', 'template', 'background', '|',
+                'horizontal', 'date', 'time', 'spechars', 'wordimage', '|',
+                'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
+                'print', 'preview', 'searchreplace', 'help'
+            ]],
+            //关闭elementPath
+            elementPathEnabled: false,
+        });
+    })
+
+    $(function () {
+        var ue = UE.getEditor('introduction2', {
+            //关闭字数统计
+            wordCount: false,
+            toolbars: [['fullscreen', 'source', '|', 'undo', 'redo', '|',
+                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+                'directionalityltr', 'directionalityrtl', 'indent', '|',
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+                'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+                'insertimage', 'emotion', 'insertvideo', 'attachment', 'map', 'template', 'background', '|',
+                'horizontal', 'date', 'time', 'spechars', 'wordimage', '|',
+                'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
+                'print', 'preview', 'searchreplace', 'help'
+            ]],
+            //关闭elementPath
+            elementPathEnabled: false,
+        });
+    })
+
+    $(function () {
+        var ue = UE.getEditor('introduction3', {
             //关闭字数统计
             wordCount: false,
             toolbars: [['fullscreen', 'source', '|', 'undo', 'redo', '|',

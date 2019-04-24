@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -38,8 +39,9 @@ public class NewsContriller {
     @RequestMapping("news.html")
     public ModelAndView listNews(@RequestParam(required = false, defaultValue = "1") int page,
                                  @RequestParam(required = false, defaultValue = "10") int rows,
-                                 @RequestParam(required = false, defaultValue = "1") int type) {
+                                 @RequestParam(required = false, defaultValue = "1") int type, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
+        session.setAttribute("type", type);
         List<News> newsList = newsService.listnewsOrderSortAndDate(type, page, rows);
         modelAndView.addObject("pageInfo", new PageInfo<>(newsList));
         return modelAndView;
@@ -54,7 +56,11 @@ public class NewsContriller {
     public ModelAndView listNews(int id) {
         ModelAndView modelAndView = new ModelAndView();
         News news = newsService.getNewsById(id);
+        News newsById1 = newsService.getNewsById1(id);
+        News newsById2 = newsService.getNewsById2(id);
         modelAndView.addObject("news", news);
+        modelAndView.addObject("newsById1", newsById1);
+        modelAndView.addObject("newsById2", newsById2);
         return modelAndView;
     }
 

@@ -61,4 +61,14 @@ public class NewsServiceImpl extends BaseService<News> implements NewsService {
         }
         return newsMapper.listNews();
     }
+
+    @Override
+    public News getNewsById1(Integer id) {
+        return newsMapper.getNewsById1(id);
+    }
+
+    @Override
+    public News getNewsById2(Integer id) {
+        return newsMapper.getNewsById2(id);
+    }
 }

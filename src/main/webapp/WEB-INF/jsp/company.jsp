@@ -141,7 +141,7 @@
 <div class="company_content">
     <div class="company_center">
         <div class="company_profile">
-            ${company.context}
+            ${context}
         </div>
     </div>
 </div>

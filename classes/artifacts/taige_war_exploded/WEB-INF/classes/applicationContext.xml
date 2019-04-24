@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-       xmlns:tx="http://www.springframework.org/schema/tx" 
-       xmlns:aop="http://www.springframework.org/schema/aop" 
-       xmlns:context="http://www.springframework.org/schema/context" 
-       xmlns="http://www.springframework.org/schema/beans" 
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
        http://www.springframework.org/schema/beans/spring-beans.xsd 
        http://www.springframework.org/schema/tx 
@@ -32,17 +32,17 @@
         <property name="maxWait" value="60000"/>
         <!-- 最小空闲连接   -->
         <property name="minIdle" value="1"/>
-		<!-- 每一分钟运行一次空闲连接回收器   -->
+        <!-- 每一分钟运行一次空闲连接回收器   -->
         <property name="timeBetweenEvictionRunsMillis" value="60000"/>
         <!-- 池中的连接空闲6分钟后被回收  -->
         <property name="minEvictableIdleTimeMillis" value="300000"/>
-        
-        <!-- 超时时间；单位为秒。180秒=3分钟 -->  
-		<property name="removeAbandonedTimeout" value="180" />
-		<!-- 关闭abanded连接时输出错误日志 -->  
-		<property name="logAbandoned" value="true" />
-		<!-- 超过时间限制是否回收 --> 
-		<property name="removeAbandoned" value="true" />
+
+        <!-- 超时时间；单位为秒。180秒=3分钟 -->
+        <property name="removeAbandonedTimeout" value="180"/>
+        <!-- 关闭abanded连接时输出错误日志 -->
+        <property name="logAbandoned" value="true"/>
+        <!-- 超过时间限制是否回收 -->
+        <property name="removeAbandoned" value="true"/>
 
         <property name="validationQuery" value="SELECT 'x'"/>
         <property name="testWhileIdle" value="true"/>
@@ -51,7 +51,7 @@
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-    <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="dataSource" ref="dataSource"/>
         <property name="mapperLocations">
             <array>
@@ -77,6 +77,18 @@
         </property>
     </bean>
 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding">
+            <value>UTF-8</value>
+        </property>
+        <property name="maxUploadSize">
+            <value>32505856</value><!-- 上传文件大小限制为31M，31*1024*1024 -->
+        </property>
+        <property name="maxInMemorySize">
+            <value>4096</value>
+        </property>
+    </bean>
+
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.yc.education.mapper"/>
         <!-- 3.2.2版本新特性，markerInterface可以起到mappers配置的作用，详细情况需要看Marker接口类 -->
@@ -89,7 +101,6 @@
         </property>
         -->
     </bean>
-
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
         <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
@@ -113,36 +124,35 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-    
 
 
     <!-- ...............................这个配置文件专门配置定时任务........................... -->
 
- <!-- 方式二：使用MethodInvokingJobDetailFactoryBean，任务类可以不实现Job接口，通过targetMethod指定调用方法-->    
-    <!-- 定义目标bean和bean中的方法 -->  
-<!--     <bean id="SpringQtzJob" class="com.yc.education.controller.SupplierController"/>  
-    <bean id="SpringQtzJobMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
-    <property name="targetObject">
-        <ref bean="SpringQtzJob"/>
-    </property>
-    <property name="targetMethod">  要执行的方法名称  
-        <value>execute</value>  
-    </property>  
-</bean>   -->
-  
-<!-- ======================== 调度触发器 ======================== -->  
-<!-- <bean id="CronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">  
-    <property name="jobDetail" ref="SpringQtzJobMethod"></property>  
-    <property name="cronExpression" value="0 0 0 * * ? *"></property>  
-</bean>   -->
-  
-<!-- ======================== 调度工厂 ======================== -->  
-<!-- <bean id="SpringJobSchedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
-    <property name="triggers">  
-        <list>  
-            <ref bean="CronTriggerBean"/>  
-        </list>  
-    </property>  
-</bean>  -->   
+    <!-- 方式二：使用MethodInvokingJobDetailFactoryBean，任务类可以不实现Job接口，通过targetMethod指定调用方法-->
+    <!-- 定义目标bean和bean中的方法 -->
+    <!--     <bean id="SpringQtzJob" class="com.yc.education.controller.SupplierController"/>
+        <bean id="SpringQtzJobMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="SpringQtzJob"/>
+        </property>
+        <property name="targetMethod">  要执行的方法名称
+            <value>execute</value>
+        </property>
+    </bean>   -->
+
+    <!-- ======================== 调度触发器 ======================== -->
+    <!-- <bean id="CronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="SpringQtzJobMethod"></property>
+        <property name="cronExpression" value="0 0 0 * * ? *"></property>
+    </bean>   -->
+
+    <!-- ======================== 调度工厂 ======================== -->
+    <!-- <bean id="SpringJobSchedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="CronTriggerBean"/>
+            </list>
+        </property>
+    </bean>  -->
 
 </beans>

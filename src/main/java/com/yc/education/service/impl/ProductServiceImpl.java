@@ -1,5 +1,6 @@
 package com.yc.education.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yc.education.mapper.ProductMapper;
 import com.yc.education.model.Product;
 import com.yc.education.service.ProductService;
@@ -24,6 +25,12 @@ public class ProductServiceImpl extends BaseService<Product> implements ProductS
 
     @Override
     public List<Product> listProduct() {
+        return productMapper.listProduct();
+    }
+
+    @Override
+    public List<Product> listProduct(int page, int rows) {
+        PageHelper.startPage(page, rows);
         return productMapper.listProduct();
     }
 

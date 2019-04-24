@@ -21,6 +21,13 @@ public interface ProductService extends IService<Product> {
      */
     public List<Product> listProduct();
 
+    /**
+     * 查询所有的产品 排序
+     *
+     * @return
+     */
+    public List<Product> listProduct(int page, int rows);
+
 
     /**
      * 根据产品名称模糊查询

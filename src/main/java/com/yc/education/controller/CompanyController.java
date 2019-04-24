@@ -34,8 +34,19 @@ public class CompanyController {
     @RequestMapping("company")
     public ModelAndView getCompany(@RequestParam(required = false, defaultValue = "1") int type) {
         ModelAndView modelAndView = new ModelAndView();
-        Company company = companyService.getCompany(type);
-        modelAndView.addObject("company", company);
+        Company company = companyService.company().get(0);
+        if (type == 1) {
+            modelAndView.addObject("context", company.getContext());
+        }
+        if (type == 2) {
+            modelAndView.addObject("context", company.getVision());
+        }
+        if (type == 3) {
+            modelAndView.addObject("context", company.getSecurity());
+        }
+        if (type == 4) {
+            modelAndView.addObject("context", company.getDelivery());
+        }
         return modelAndView;
     }
 

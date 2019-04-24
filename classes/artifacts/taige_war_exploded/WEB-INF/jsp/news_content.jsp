@@ -153,8 +153,18 @@
                 ${news.content}
             </div>
             <div class="page">
-                <div><a href="#">上一篇：上海泰格</a></div>
-                <div><a href="#">下一篇：上海泰格</a></div>
+                <c:if test="${newsById1.title != null}">
+                    <div><a href="news_content.html?id=${newsById1.id}">上一篇：${newsById1.title}</a></div>
+                </c:if>
+                <c:if test="${newsById1.title == null}">
+                    <div><a href="#">上一篇：无</a></div>
+                </c:if>
+                <c:if test="${newsById2.title != null}">
+                    <div><a href="news_content.html?id=${newsById2.id}">下一篇：${newsById2.title}</a></div>
+                </c:if>
+                <c:if test="${newsById2.title == null}">
+                    <div><a href="#">下一篇：无</a></div>
+                </c:if>
             </div>
         </div>
 

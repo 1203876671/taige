@@ -20,5 +20,12 @@ public interface ApplyService extends IService<Apply> {
      */
     public List<Apply> listAppply();
 
+    /**
+     * 查询所有的应用 分页
+     *
+     * @return
+     */
+    public List<Apply> listAppply(int page, int rows);
+
 
 }

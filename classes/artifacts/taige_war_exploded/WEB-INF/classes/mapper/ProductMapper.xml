@@ -13,14 +13,15 @@
         <result column="introduction" property="introduction" jdbcType="VARCHAR"/>
         <result column="img" property="img" jdbcType="VARCHAR"/>
         <result column="uses" property="uses" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="listProduct" resultMap="BaseResultMap">
-        SELECT * FROM product
+        SELECT * FROM product ORDER BY (sort+0)
     </select>
 
     <select id="likeProductName" resultMap="BaseResultMap">
-        SELECT * FROM product WHERE name like CONCAT(CONCAT('%',#{name}),'%')
+        SELECT * FROM product WHERE name like CONCAT(CONCAT('%',#{name}),'%') ORDER BY (sort+0)
     </select>
 
 </mapper>

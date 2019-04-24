@@ -1,5 +1,6 @@
 package com.yc.education.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yc.education.mapper.DetailsMapper;
 import com.yc.education.model.Details;
 import com.yc.education.service.DetailsService;
@@ -24,5 +25,16 @@ public class DetailsServiceImpl extends BaseService<Details> implements DetailsS
     @Override
     public List<Details> listDetails(int applyid) {
         return detailsMapper.listDetails(applyid);
+    }
+
+    @Override
+    public List<Details> listDetails(int page, int rows, int applyid) {
+        PageHelper.startPage(page, rows);
+        return detailsMapper.listDetails(applyid);
+    }
+
+    @Override
+    public void delDetails(int applyid) {
+        detailsMapper.delDetails(applyid);
     }
 }

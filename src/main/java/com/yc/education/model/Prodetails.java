@@ -48,6 +48,19 @@ public class Prodetails {
     private String appearance;
 
     /**
+     * 产品文件
+     */
+    private String file;
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
+
+    /**
      * @return id
      */
     public Integer getId() {
@@ -203,5 +216,21 @@ public class Prodetails {
      */
     public void setAppearance(String appearance) {
         this.appearance = appearance;
+    }
+
+    @Override
+    public String toString() {
+        return "Prodetails{" +
+                "id=" + id +
+                ", proid=" + proid +
+                ", name='" + name + '\'' +
+                ", ingredients='" + ingredients + '\'' +
+                ", likeproduct='" + likeproduct + '\'' +
+                ", uses='" + uses + '\'' +
+                ", solvent='" + solvent + '\'' +
+                ", system='" + system + '\'' +
+                ", appearance='" + appearance + '\'' +
+                ", file='" + file + '\'' +
+                '}';
     }
 }

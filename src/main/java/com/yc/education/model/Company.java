@@ -1,8 +1,6 @@
 package com.yc.education.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 public class Company {
     @Id
@@ -13,6 +11,21 @@ public class Company {
      * 公司内容
      */
     private String context;
+
+    /**
+     * 价值传递
+     */
+    private String delivery;
+
+    /**
+     * 安全环保
+     */
+    private String security;
+
+    /**
+     * 愿景
+     */
+    private String vision;
 
     /**
      * 公司电话
@@ -30,7 +43,7 @@ public class Company {
     private String address;
 
     /**
-     * 显示类型
+     * 显示类型（1，公司简介，2公司愿景，3安全环保，4价值传递）
      */
     private String type;
 
@@ -43,14 +56,6 @@ public class Company {
      * 公司名称
      */
     private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     /**
      * @return id
@@ -82,6 +87,60 @@ public class Company {
      */
     public void setContext(String context) {
         this.context = context;
+    }
+
+    /**
+     * 获取价值传递
+     *
+     * @return delivery - 价值传递
+     */
+    public String getDelivery() {
+        return delivery;
+    }
+
+    /**
+     * 设置价值传递
+     *
+     * @param delivery 价值传递
+     */
+    public void setDelivery(String delivery) {
+        this.delivery = delivery;
+    }
+
+    /**
+     * 获取安全环保
+     *
+     * @return security - 安全环保
+     */
+    public String getSecurity() {
+        return security;
+    }
+
+    /**
+     * 设置安全环保
+     *
+     * @param security 安全环保
+     */
+    public void setSecurity(String security) {
+        this.security = security;
+    }
+
+    /**
+     * 获取愿景
+     *
+     * @return vision - 愿景
+     */
+    public String getVision() {
+        return vision;
+    }
+
+    /**
+     * 设置愿景
+     *
+     * @param vision 愿景
+     */
+    public void setVision(String vision) {
+        this.vision = vision;
     }
 
     /**
@@ -139,28 +198,56 @@ public class Company {
     }
 
     /**
-     * 获取显示类型
+     * 获取显示类型（1，公司简介，2公司愿景，3安全环保，4价值传递）
      *
-     * @return type - 显示类型
+     * @return type - 显示类型（1，公司简介，2公司愿景，3安全环保，4价值传递）
      */
     public String getType() {
         return type;
     }
 
     /**
-     * 设置显示类型
+     * 设置显示类型（1，公司简介，2公司愿景，3安全环保，4价值传递）
      *
-     * @param type 显示类型
+     * @param type 显示类型（1，公司简介，2公司愿景，3安全环保，4价值传递）
      */
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     * 获取显示状态0不显示1显示
+     *
+     * @return state - 显示状态0不显示1显示
+     */
     public Integer getState() {
         return state;
     }
 
+    /**
+     * 设置显示状态0不显示1显示
+     *
+     * @param state 显示状态0不显示1显示
+     */
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    /**
+     * 获取公司名称
+     *
+     * @return name - 公司名称
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * 设置公司名称
+     *
+     * @param name 公司名称
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -10,12 +10,16 @@
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="ingredients" property="ingredients" jdbcType="VARCHAR"/>
         <result column="likeproduct" property="likeproduct" jdbcType="VARCHAR"/>
-        <result column="use" property="use" jdbcType="VARCHAR"/>
+        <result column="uses" property="uses" jdbcType="VARCHAR"/>
         <result column="applyname" property="applyname" jdbcType="VARCHAR"/>
+        <result column="file" property="file" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="listDetails" resultMap="BaseResultMap">
         SELECT * FROM details WHERE applyid = #{0}
     </select>
 
+    <delete id="delDetails">
+        DELETE FROM details WHERE applyid = #{0}
+    </delete>
 </mapper>
