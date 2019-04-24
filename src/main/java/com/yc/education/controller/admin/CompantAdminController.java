@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -71,6 +72,80 @@ public class CompantAdminController {
     }
 
     /**
+     * 公司修改
+     *
+     * @param type
+     * @return
+     */
+    @RequestMapping("upcompanytype.html")
+    public ModelAndView upcompanytype(@RequestParam(required = false, defaultValue = "1") int type, int id, HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        if (type == 1) {
+            modelAndView.addObject("title", "公司内容");
+        }
+        if (type == 2) {
+            modelAndView.addObject("title", "公司愿景");
+        }
+        if (type == 3) {
+            modelAndView.addObject("title", "价值传递");
+        }
+        if (type == 4) {
+            modelAndView.addObject("title", "安全环保");
+        }
+        modelAndView.addObject("company", companyService.selectByKey(id));
+        session.setAttribute("type", type);
+        return modelAndView;
+    }
+
+    /**
+     * 添加或修改公司
+     *
+     * @return
+     * @throws java.text.ParseException
+     * @throws IOException
+     */
+    @RequestMapping(value = "insertcompanytype.html")
+    public ModelAndView insertcompanytype(String editorValue, int id, HttpSession session, int type) throws java.text.ParseException, IOException {
+        Company company = new Company();
+        company.setId(id);
+        if (type == 1) {
+            company.setContext(editorValue);
+        }
+        if (type == 2) {
+            company.setVision(editorValue);
+        }
+        if (type == 3) {
+            company.setDelivery(editorValue);
+        }
+        if (type == 4) {
+            company.setSecurity(editorValue);
+        }
+        if (company.getId() != null && !"".equals(company.getId())) {
+            companyService.updateNotNull(company);
+        } else {
+            companyService.save(company);
+        }
+        ModelAndView modelAndView = ViewUtil.returnview(10, "upcompanydetails.html", "公司详情");
+        session.setAttribute("type", type);
+        session.setAttribute("company", company);
+        return modelAndView;
+    }
+
+    /**
+     * 公司修改
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping("upcompanydetails.html")
+    public ModelAndView upcompanydetails(@RequestParam(required = false, defaultValue = "0") int id, HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        session.setAttribute("id", id);
+        modelAndView.addObject("company", companyService.selectByKey(id));
+        return modelAndView;
+    }
+
+    /**
      * 招聘信息查看
      */
     @RequestMapping("invitemanage.html")
@@ -96,15 +171,13 @@ public class CompantAdminController {
      * 添加或修改公司
      *
      * @param company
-     * @param editorValue
      * @param request
      * @return
      * @throws java.text.ParseException
      * @throws IOException
      */
     @RequestMapping(value = "insertcompany.html")
-    public ModelAndView insertArticle(Company company, String editorValue, HttpServletRequest request) throws java.text.ParseException, IOException {
-        company.setContext(editorValue);
+    public ModelAndView insertArticle(Company company, HttpServletRequest request) throws java.text.ParseException, IOException {
         if (company.getId() != null && !"".equals(company.getId())) {
             companyService.updateNotNull(company);
         } else {
@@ -114,6 +187,7 @@ public class CompantAdminController {
         modelAndView.setViewName("admin/companymanage");
         return modelAndView;
     }
+
 
     /**
      * 添加或修改招聘信息

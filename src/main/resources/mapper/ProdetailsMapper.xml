@@ -28,5 +28,8 @@
     <select id="proDetails" resultMap="BaseResultMap">
          SELECT * FROM prodetails
     </select>
+    <select id="likeProDetailsName" resultMap="BaseResultMap">
+           SELECT * FROM prodetails WHERE name like CONCAT(CONCAT('%',#{0}),'%')
+    </select>
 
 </mapper>

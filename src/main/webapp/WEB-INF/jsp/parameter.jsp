@@ -144,7 +144,7 @@
 <div class="download">
     <div class="download-le">
         <div class="bread">
-            <a href="index.jsp">首页</a>>
+            <a href="index.html">首页</a>>
             <a href="goods.html">产品中心</a>>
             <a href="download.html">分散剂</a>
         </div>
@@ -156,7 +156,7 @@
 							产品资料下载
 							<img src="${pageContext.request.contextPath}/static/images/icon_pdf.png" alt="">
 						</a>
-					</span>
+				</span>
             </h1>
         </div>
         <div class="param-list">
@@ -354,7 +354,7 @@
 <div class="footer_flixd">
     <ul>
         <li>
-            <a href="index.jsp" class="frist_a">
+            <a href="index.html" class="frist_a">
                 <i class="frist"></i>首頁</a>
         </li>
         <li>

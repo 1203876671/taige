@@ -75,54 +75,28 @@
 <h3 style="text-align:center;">公司信息修改/添加</h3>
 <article class="page-container">
     <form class="form form-horizontal" id="form-article-add" enctype="multipart/form-data"
-          action="${pageContext.request.contextPath}/admin/insertcompany.html" method="post">
-        <input name="id" hidden="hidden" value="${company.id}"/>
+          action="${pageContext.request.contextPath}/admin/insertcompanytype.html" method="post">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-1"><span class="c-red">*</span>公司名称：</label>
+            <label class="form-label col-xs-4 col-sm-1">${title}：</label>
+            <input  hidden="hidden" name="type" value="${type}" />
+            <input  hidden="hidden" name="id" value="${company.id}" />
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${company.name}" placeholder="" id="name" name="name">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-1">公司电话：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${company.phone}" placeholder="" id="phone"
-                       name="phone">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-1">公司地址：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="address" id="address" placeholder="" value="${company.address}"
-                       class="input-text">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-1">公司邮箱：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="emil" id="emil" placeholder="" value="${company.emil}"
-                       class="input-text">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-1"><span class="c-red"></span>显示状态：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <select class="input-text" name="state">
-                    <c:if test="${company.state == 1}">
-                        <option value="1" selected>显示</option>
+                <script id="introduction" type="text/plain" style="width:100%;height:400px;">
+                    <c:if test="${type ==1}">
+                        ${company.context}
                     </c:if>
-                    <c:if test="${company.state != 1}">
-                        <option value="1">显示</option>
+                    <c:if test="${type ==2}">
+                        ${company.vision}
                     </c:if>
-                    <c:if test="${company.state == 2}">
-                        <option value="2" selected>隐藏</option>
+                    <c:if test="${type ==3}">
+                        ${company.delivery}
                     </c:if>
-                    <c:if test="${company.state != 2}">
-                        <option value="2">隐藏</option>
+                    <c:if test="${type ==4}">
+                        ${company.security}
                     </c:if>
-                </select>
-            </div>
-        </div>
+                </script>
+             </div>
+          </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
                 <button class="btn btn-primary radius" onclick="checkform();" type="submit"><i class="Hui-iconfont">&#xe632;</i>

@@ -37,6 +37,11 @@ public class ProdetailsServiceImpl extends BaseService<Prodetails> implements Pr
     }
 
     @Override
+    public List<Product> likeProDetailsName(String name) {
+        return prodetailsService.likeProDetailsName(name);
+    }
+
+    @Override
     public List<Prodetails> proDetails() {
         return prodetailsService.proDetails();
     }

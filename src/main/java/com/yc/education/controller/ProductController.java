@@ -77,7 +77,7 @@ public class ProductController {
     @RequestMapping("seach.html")
     public ModelAndView seach(String proname) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("product", productService.likeProductName(proname));
+        modelAndView.addObject("product", prodetailsService.likeProDetailsName(proname));
         return modelAndView;
     }
 

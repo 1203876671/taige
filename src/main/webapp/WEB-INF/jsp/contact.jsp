@@ -240,7 +240,7 @@
 <div class="footer_flixd">
     <ul>
         <li>
-            <a href="index.jsp" class="frist_a">
+            <a href="index.html" class="frist_a">
                 <i class="frist"></i>首頁</a>
         </li>
         <li>

@@ -144,7 +144,7 @@
 <div class="ask-f">
     <div class="ask">
         <div class="bread">
-            <a href="index.jsp">首页</a>
+            <a href="index.html">首页</a>
             >
             <a href="application.html">应用推荐</a>
             >
@@ -314,7 +314,7 @@
 <div class="footer_flixd">
     <ul>
         <li>
-            <a href="index.jsp" class="frist_a">
+            <a href="index.html" class="frist_a">
                 <i class="frist"></i>首頁</a>
         </li>
         <li>

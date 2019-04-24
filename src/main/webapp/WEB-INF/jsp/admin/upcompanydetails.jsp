@@ -45,7 +45,6 @@
 
     <script type="text/javascript">
 
-
         function cheakform() {
             $("#sub").click(function () {
                 var title = $("input[name='title']").val();
@@ -62,7 +61,6 @@
         }
 
     </script>
-
     <title>公司管理</title>
 </head>
 <body>
@@ -73,66 +71,40 @@
        href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
 </nav>
 <h3 style="text-align:center;">公司信息修改/添加</h3>
-<article class="page-container">
-    <form class="form form-horizontal" id="form-article-add" enctype="multipart/form-data"
-          action="${pageContext.request.contextPath}/admin/insertcompany.html" method="post">
-        <input name="id" hidden="hidden" value="${company.id}"/>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-1"><span class="c-red">*</span>公司名称：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${company.name}" placeholder="" id="name" name="name">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-1">公司电话：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="${company.phone}" placeholder="" id="phone"
-                       name="phone">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-1">公司地址：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="address" id="address" placeholder="" value="${company.address}"
-                       class="input-text">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-1">公司邮箱：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="emil" id="emil" placeholder="" value="${company.emil}"
-                       class="input-text">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-1"><span class="c-red"></span>显示状态：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <select class="input-text" name="state">
-                    <c:if test="${company.state == 1}">
-                        <option value="1" selected>显示</option>
-                    </c:if>
-                    <c:if test="${company.state != 1}">
-                        <option value="1">显示</option>
-                    </c:if>
-                    <c:if test="${company.state == 2}">
-                        <option value="2" selected>隐藏</option>
-                    </c:if>
-                    <c:if test="${company.state != 2}">
-                        <option value="2">隐藏</option>
-                    </c:if>
-                </select>
-            </div>
-        </div>
-        <div class="row cl">
-            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button class="btn btn-primary radius" onclick="checkform();" type="submit"><i class="Hui-iconfont">&#xe632;</i>
-                    保存
-                </button>
-                <button class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
-            </div>
-        </div>
-    </form>
-</article>
+<div class="mt-20">
+    <table class="table table-border table-bordered table-bg table-hover table-sort">
+        <thead>
+        <tr class="text-c">
+            <%--<th><input type="checkbox" id="sltall"/> </th>--%>
+            <th width="200">公司内容</th>
+            <th width="200"><a style="text-decoration:none" class="ml-5"
+                               href="upcompanytype.html?type=1&id=${company.id}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i>
+            </th>
+        </tr>
+        <tr class="text-c">
+            <%--<th><input type="checkbox" id="sltall"/> </th>--%>
+            <th width="200">公司愿景</th>
+            <th width="200"><a style="text-decoration:none" class="ml-5"
+                               href="upcompanytype.html?type=2&id=${company.id}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+            </th>
+        </tr>
+        <tr class="text-c">
+            <%--<th><input type="checkbox" id="sltall"/> </th>--%>
+            <th width="200">价值传递</th>
+            <th width="200"><a style="text-decoration:none" class="ml-5"
+                               href="upcompanytype.html?type=3&id=${company.id}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i>
+            </th>
+        </tr>
+        <tr class="text-c">
+            <%--<th><input type="checkbox" id="sltall"/> </th>--%>
+            <th width="200">安全环保</th>
+            <th width="200"><a style="text-decoration:none" class="ml-5"
+                               href="upcompanytype.html?type=4&id=${company.id}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i>
+            </th>
+        </tr>
+        </thead>
+    </table>
+</div>
 
 <!--请在下方写此页面业务相关的脚本-->
 

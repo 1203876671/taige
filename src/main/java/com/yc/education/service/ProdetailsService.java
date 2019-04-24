@@ -1,6 +1,7 @@
 package com.yc.education.service;
 
 import com.yc.education.model.Prodetails;
+import com.yc.education.model.Product;
 
 import java.util.List;
 
@@ -26,6 +27,14 @@ public interface ProdetailsService extends IService<Prodetails> {
      * @return
      */
     public List<Prodetails> listProDetails(int page, int rows, int proid);
+
+    /**
+     * 取所有对象
+     *
+     * @return
+     */
+    public List<Product> likeProDetailsName(String name);
+
 
     /**
      * 取所有对象
