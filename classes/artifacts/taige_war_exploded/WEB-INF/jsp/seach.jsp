@@ -193,7 +193,7 @@
         </div>
         <c:forEach items="${product}" var="product">
             <div class="dl-list">
-                <a class="dl-list-con" href="parameter.html">
+                <a class="dl-list-con" href="parameter.html?id=${product.id}">
                     <ul class="clearfix">
                         <li>${product.name}</li>
                         <li>${product.likeproduct}</li>
@@ -295,7 +295,7 @@
 <div class="footer_flixd">
     <ul>
         <li>
-            <a href="index.jsp" class="frist_a">
+            <a href="index.html" class="frist_a">
                 <i class="frist"></i>首頁</a>
         </li>
         <li>

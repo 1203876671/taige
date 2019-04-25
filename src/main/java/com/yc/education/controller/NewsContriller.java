@@ -39,7 +39,7 @@ public class NewsContriller {
     @RequestMapping("news.html")
     public ModelAndView listNews(@RequestParam(required = false, defaultValue = "1") int page,
                                  @RequestParam(required = false, defaultValue = "10") int rows,
-                                 @RequestParam(required = false, defaultValue = "1") int type, HttpSession session) {
+                                 @RequestParam(required = false, defaultValue = "0") int type, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
         session.setAttribute("type", type);
         List<News> newsList = newsService.listnewsOrderSortAndDate(type, page, rows);

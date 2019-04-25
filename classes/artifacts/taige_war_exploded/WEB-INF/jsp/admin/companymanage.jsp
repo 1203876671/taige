@@ -42,7 +42,7 @@
 
 <div class="page-container">
     <div class="cl pd-5 bg-1 bk-gray mt-20">
-        <a class="btn btn-primary radius" href="upcompany.html"><i
+        <a class="btn btn-primary radius" href="upcompany.html?id=0"><i
                 class="Hui-iconfont">&#xe600;</i>
             添加公司
         </a>
@@ -82,6 +82,8 @@
                            href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
                         <a style="text-decoration:none" class="ml-5" onClick="article_del(this,${item.id})"
                            href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                        <a style="text-decoration:none" class="ml-5" href="upcompanydetails.html?id=${item.id }"
+                           title="管理"><i class="Hui-iconfont">&#xe61d;</i></a>
                     </td>
                 </tr>
             </c:forEach>

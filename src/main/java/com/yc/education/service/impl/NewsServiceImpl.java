@@ -26,7 +26,7 @@ public class NewsServiceImpl extends BaseService<News> implements NewsService {
     @Override
     public List<News> listnewsOrderSortAndDate(Integer type, int page, int rows) {
         PageHelper.startPage(page, rows);
-        if (type == null) {
+        if (type == null || type == 0) {
             return newsMapper.listnewsOrderSortAndDate();
         } else {
             return newsMapper.listNewsListName(type);

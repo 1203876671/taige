@@ -78,7 +78,7 @@
                     <a class="level" href="goods.html">产品中心</a>
                     <div class="level_down">
                         <c:forEach items="${listProduct}" var="listProduct">
-                            <a href="download.html">${listProduct.name}</a>
+                            <a href="download.htmlproid=${listProduct.id}">${listProduct.name}</a>
                         </c:forEach>
                     </div>
                 </li>
@@ -144,7 +144,7 @@
 <div class="ask-f">
     <div class="ask">
         <div class="bread">
-            <a href="index.jsp">首页</a>
+            <a href="index.html">首页</a>
             >
             <a href="application.html">应用推荐</a>
             >
@@ -314,7 +314,7 @@
 <div class="footer_flixd">
     <ul>
         <li>
-            <a href="index.jsp" class="frist_a">
+            <a href="index.html" class="frist_a">
                 <i class="frist"></i>首頁</a>
         </li>
         <li>

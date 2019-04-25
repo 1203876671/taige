@@ -80,7 +80,7 @@
                 <li class="navli">
                     <a class="level" href="news.html">新闻资讯</a>
                     <div class="level_down">
-                        <a href="news.html">公司新闻</a>
+                        <a href="news.html?type=1">公司新闻</a>
                         <a href="news.html?type=2">行业动态</a>
                     </div>
                 </li>
@@ -248,7 +248,7 @@
                 <h2>应用推荐</h2>
                 <p>科学演绎聚合物</p>
             </div>
-            <a href="application-list-shui.html" class="more">全部</a>
+            <a href="application.html" class="more">全部</a>
         </div>
     </div>
     <div class="reco_con clearfix">
@@ -410,7 +410,7 @@
                 <dl>
                     <dt>新闻资讯</dt>
                     <dd>
-                        <a href="news.html">公司新闻</a>
+                        <a href="news.html?type=1">公司新闻</a>
                     </dd>
                     <dd>
                         <a href="news.html?type=2">行业动态</a>

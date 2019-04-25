@@ -72,11 +72,17 @@
     <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
        href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
 </nav>
-<h3 style="text-align:center;">新闻修改/添加</h3>
+<h3 style="text-align:center;"><c:if test="${type==1}">
+    公司新闻
+</c:if>
+    <c:if test="${type==2}">
+        行业动态
+    </c:if>修改/添加</h3>
 <article class="page-container">
     <form class="form form-horizontal" id="form-article-add" enctype="multipart/form-data"
           action="${pageContext.request.contextPath}/admin/insertnews.html" method="post">
         <input name="id" hidden="hidden" value="${news.id}"/>
+        <input name="type" hidden="hidden" value="${type}"/>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>新闻标题：</label>
             <div class="formControls col-xs-8 col-sm-9">

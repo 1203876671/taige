@@ -72,14 +72,14 @@
                     <a class="level" href="goods.html">产品中心</a>
                     <div class="level_down">
                         <c:forEach items="${listProduct}" var="listProduct">
-                            <a href="download.html">${listProduct.name}</a>
+                            <a href="download.htmlproid=${listProduct.id}">${listProduct.name}</a>
                         </c:forEach>
                     </div>
                 </li>
                 <li class="navli">
                     <a class="level" href="news.html">新闻资讯</a>
                     <div class="level_down">
-                        <a href="news.html">公司新闻</a>
+                        <a href="news.html?type=1">公司新闻</a>
                         <a href="news.html?type=2">行业动态</a>
                     </div>
                 </li>
@@ -209,7 +209,7 @@
                 <dl>
                     <dt>新闻资讯</dt>
                     <dd>
-                        <a href="news.html">公司新闻</a>
+                        <a href="news.html?type=1">公司新闻</a>
                     </dd>
                     <dd>
                         <a href="news.html?type=2">行业动态</a>

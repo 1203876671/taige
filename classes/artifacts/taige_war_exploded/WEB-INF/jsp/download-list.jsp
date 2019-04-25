@@ -143,7 +143,7 @@
 </div>
 <div class="download">
     <div class="bread">
-        <a href="index.jsp">首页</a>
+        <a href="index.html">首页</a>
         <a href="download-list.html">资料下载</a>
     </div>
     <div class="download-le download-list-le">
@@ -553,7 +553,7 @@
 <div class="footer_flixd">
     <ul>
         <li>
-            <a href="index.jsp" class="frist_a">
+            <a href="index.html" class="frist_a">
                 <i class="frist"></i>首頁</a>
         </li>
         <li>

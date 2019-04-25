@@ -78,6 +78,14 @@
     <input runat="server" id="divScrollValue" type="hidden" value=""/>
     <div class="menu_dropdown bk_2">
         <dl id="menu-article">
+            <a style="text-decoration: none;" _href="usermanage.html" data-title="用户申请信息管理"
+               href="javascript:void(0)">
+                <dt>
+                    <i class="Hui-iconfont">&#xe70f;</i>用户申请信息管理
+                </dt>
+            </a>
+        </dl>
+        <dl id="menu-article">
             <%--<a _href="applymanage.html" data-title="公司管理" href="javascript:void(0)">售后申请管理</a>--%>
             <a style="text-decoration: none;" _href="applymanage.html" data-title="应用分类管理"
                href="javascript:void(0)">

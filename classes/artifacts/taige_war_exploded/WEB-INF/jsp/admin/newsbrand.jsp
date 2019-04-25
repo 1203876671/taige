@@ -66,7 +66,7 @@
         <%--<span class="l"><a href="javascript:;" onclick="datadel()"--%>
         <%--class="btn btn-danger radius" id="delete"><i--%>
         <%--class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span>--%>
-        <a class="btn btn-primary radius" href="newsadd.html?type=${type}"><i
+        <a class="btn btn-primary radius" href="newsadd.html?type=${type}&id=0"><i
                 class="Hui-iconfont">&#xe600;</i> <c:if test="${type==1}">
             添加新闻
         </c:if>
@@ -99,7 +99,7 @@
                     <td>${itme.sort}</td>
                     <td>${itme.date}</td>
                     <td class="td-manage">
-                        <a style="text-decoration:none" class="ml-5" onClick="article_edit(${itme.id})"
+                        <a style="text-decoration:none" class="ml-5" onClick="article_edit(${itme.id},${type})"
                            href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
                         <a style="text-decoration:none" class="ml-5" onClick="article_del(this,${itme.id})"
                            href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
@@ -221,8 +221,8 @@
         })
     });
 
-    function article_edit(id) {
-        window.location.href = "newsadd.html?id=" + id;
+    function article_edit(id, type) {
+        window.location.href = "newsadd.html?id=" + id + "&type=" + type;
     }
 
     $('.table-sort').dataTable({
@@ -233,7 +233,6 @@
             {"orderable": false, "aTargets": [0, 6]}// 制定列不参与排序
         ]
     });
-
 
 
 </script>

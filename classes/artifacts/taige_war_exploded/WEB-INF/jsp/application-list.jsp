@@ -28,6 +28,7 @@
     <script src="${pageContext.request.contextPath}/static/js/jquery-2.1.0.js" type="text/javascript"
             charset="utf-8"></script>
     <script src="${pageContext.request.contextPath}/static/js/Marquee.js" type="text/javascript"></script>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/swiper.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/static/js/js.js" type="text/javascript"></script>
     <title>泰格助剂</title>
@@ -78,7 +79,7 @@
                     <a class="level" href="goods.html">产品中心</a>
                     <div class="level_down">
                         <c:forEach items="${listProduct}" var="listProduct">
-                            <a href="download.html">${listProduct.name}</a>
+                            <a href="download.html?proid=${listProduct.id}">${listProduct.name}</a>
                         </c:forEach>
                     </div>
                 </li>
@@ -207,7 +208,7 @@
                     </div>
                     <div class="dl-pdf">
                         <c:if test="${details.file != null && details.file != ''}">
-                        <a href="#" class="file" download="${details.file}">
+                        <a href="${details.file}" class="file" download="${details.file}">
                             </c:if>
                             <c:if test="${details.file == null || details.file == ''}">
                             <a href="#" class="file">

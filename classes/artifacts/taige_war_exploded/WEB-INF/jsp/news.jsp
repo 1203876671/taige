@@ -129,6 +129,8 @@
                     "color": "#000"
                 })
             });
+
+
     </script>
 </div>
 <!--news-->
@@ -141,10 +143,26 @@
 <div class="news_content">
     <div class="news_center">
         <div class="news_tabs">
+            <input hidden="hidden" value="${type}" id="type"/>
             <div class="news_table">
-                <a href="news.html" class="active">全部</a>
-                <a href="news.html">公司新闻</a>
-                <a href="news.html?type=2">行业动态</a>
+                <c:if test="${type!=1 && type!=2}">
+                    <a href="news.html" class="active">全部</a>
+                </c:if>
+                <c:if test="${type==1 || type==2}">
+                    <a href="news.html">全部</a>
+                </c:if>
+                <c:if test="${type == 1}">
+                    <a href="news.html?type=1" class="active">公司新闻</a>
+                </c:if>
+                <c:if test="${type != 1}">
+                    <a href="news.html?type=1">公司新闻</a>
+                </c:if>
+                <c:if test="${type == 2}">
+                    <a href="news.html?type=2" class="active">行业动态</a>
+                </c:if>
+                <c:if test="${type != 2}">
+                    <a href="news.html?type=2">行业动态</a>
+                </c:if>
             </div>
             <div class="new_title">
                 <a href="javascript" class="a_tab">公司新闻</a>
@@ -176,7 +194,8 @@
 
             <div class="page">
                 <div class="page-list">
-                    <a class="pre" href="news.html?page=${pageInfo.prePage}&rows=${pageInfo.pageSize }&type=${type}">上一页</a>
+                    <a class="pre"
+                       href="news.html?page=${pageInfo.prePage}&rows=${pageInfo.pageSize }&type=${type}">上一页</a>
                     <c:forEach items="${pageInfo.navigatepageNums}" var="nav">
                         <c:if test="${nav == pageInfo.pageNum}">
                             <a href="news.html?page=${nav}&rows=${pageInfo.pageSize }&type=${type}"
