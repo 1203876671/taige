@@ -16,7 +16,12 @@
     </resultMap>
 
     <insert id="addUser">
-        INSERT INTO user (name,address,companyname,phone,post,emli,remark) VALUES(#{name},#{address},#{companyname},#{phone},#{post},#{emli},#{remark})
+        INSERT INTO user (name,address,companyname,phone,post,emli,remark)
+        VALUES(#{name},#{address},#{companyname},#{phone},#{post},#{emli},#{remark})
     </insert>
+
+    <select id="listUser" resultMap="BaseResultMap">
+        SELECT * FROM user
+    </select>
 
 </mapper>

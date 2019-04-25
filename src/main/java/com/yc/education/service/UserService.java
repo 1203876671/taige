@@ -20,4 +20,9 @@ public interface UserService extends IService<User> {
      * @return
      */
     public int addUser(User user);
+
+    /**
+     * 查看所有
+     */
+    public List<User> listUser(int page,int rows);
 }

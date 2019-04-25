@@ -5,6 +5,7 @@ import com.yc.education.service.UserService;
 import com.yc.education.util.AjaxMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -63,6 +64,23 @@ public class UserController {
             ajaxMessage.setIs(false);
         }
         System.out.println(ajaxMessage);
+        return ajaxMessage;
+    }
+
+    @RequestMapping("emliadd")
+    public AjaxMessage emliadd(String emil) {
+        AjaxMessage ajaxMessage = new AjaxMessage();
+        User user = new User();
+        user.setEmli(emil);
+        int save = userService.save(user);
+        System.out.println(save+"ssssssssss");
+        if (save > 0) {
+            ajaxMessage.setIs(true);
+            ajaxMessage.setMsg("添加成功");
+        } else {
+            ajaxMessage.setIs(false);
+            ajaxMessage.setMsg("添加失败");
+        }
         return ajaxMessage;
     }
 

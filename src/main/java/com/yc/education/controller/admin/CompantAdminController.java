@@ -183,8 +183,7 @@ public class CompantAdminController {
         } else {
             companyService.save(company);
         }
-        ModelAndView modelAndView = companyManage(1, 10);
-        modelAndView.setViewName("admin/companymanage");
+        ModelAndView modelAndView = ViewUtil.returnview(10, "companymanage.html", "公司管理");
         return modelAndView;
     }
 
@@ -206,9 +205,8 @@ public class CompantAdminController {
         } else {
             inviteService.save(invite);
         }
-        ModelAndView modelAndView = invitemanage(1, 10);
-        modelAndView.setViewName("admin/invitemanage");
-        return modelAndView;
+        ModelAndView returnview = ViewUtil.returnview(10, "invitemanage", "招聘信息管理");
+        return returnview;
     }
 
     /**

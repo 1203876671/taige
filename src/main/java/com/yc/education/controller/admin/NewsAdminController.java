@@ -60,9 +60,10 @@ public class NewsAdminController {
      * @return
      */
     @RequestMapping("newsadd.html")
-    public ModelAndView getnews(int id) {
+    public ModelAndView getnews(int id, int type) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("news", newsService.getNewsById(id));
+        modelAndView.addObject("type", type);
         return modelAndView;
     }
 
@@ -100,9 +101,15 @@ public class NewsAdminController {
         } else {
             newsService.save(news);
         }
-        ModelAndView newsbrand = newsbrand(1, 1, 10);
-        newsbrand.setViewName("admin/newsbrand");
-        return newsbrand;
+        String title = "";
+        if (news.getType() == 1) {
+            title = "公司新闻";
+        }
+        if (news.getType() == 2) {
+            title = "行业动态";
+        }
+        ModelAndView returnview = ViewUtil.returnview(10, "newsbrand.html?type=" + news.getType(), title);
+        return returnview;
     }
 
     /**

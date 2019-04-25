@@ -170,8 +170,8 @@
                     <i class="icon_sj icon_gj"></i>
                     <span>索取产品资料: 输入您的邮箱，我们会及时提供我们最新的产品信息给您</span>
                 </p>
-                <input type="text" class="search_input1" placeholder="请输入您的邮箱"/>
-                <input type="button" class="search_btn2" value="提交"/>
+                <input type="text" class="search_input1" id="emli" placeholder="请输入您的邮箱"/>
+                <input type="button" class="search_btn2" value="提交" onclick="emli()"/>
             </div>
             <div class="search_form clearfix">
                 <input type="text" class="search_input" placeholder="产品快速搜索" id="proname"/>
@@ -350,7 +350,8 @@
     <div class="news_tabcon aaa" style="display: none;">
         <c:forEach var="listNews1" items="${listNews2}" begin="0" end="1">
             <c:if test="${listNews1.sort == 0}">
-                <a href="news_content.html?id=${listNews1.id}" class="news_left aos-animate" data-aos-duration="300" data-aos-delay="200"
+                <a href="news_content.html?id=${listNews1.id}" class="news_left aos-animate" data-aos-duration="300"
+                   data-aos-delay="200"
                    data-aos="fade-right">
         <span class="newspic">
           <img src="${listNews1.img}">
@@ -508,6 +509,19 @@
             return true;
         } else {
             alert("请输入关键词")
+            return false;
+        }
+    }
+
+    function emli() {
+        var emli = $("#emli").val();
+        if ((/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g).test(emli)) {
+            $.post("emliadd", {"emil": emli}, function (date) {
+            })
+            alert("添加成功");
+        }
+        else {
+            alert("邮箱格式不正确");
             return false;
         }
     }

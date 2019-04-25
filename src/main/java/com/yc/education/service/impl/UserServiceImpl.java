@@ -1,5 +1,6 @@
 package com.yc.education.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yc.education.mapper.ProductMapper;
 import com.yc.education.mapper.UserMapper;
 import com.yc.education.model.Product;
@@ -27,5 +28,11 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
     @Override
     public int addUser(User user) {
         return userMapper.addUser(user);
+    }
+
+    @Override
+    public List<User> listUser(int page, int rows) {
+        PageHelper.startPage(page, rows);
+        return userMapper.listUser();
     }
 }
